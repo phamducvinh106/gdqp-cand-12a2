@@ -910,8 +910,6 @@
           <div class="game1-flip-inner transform-style-3d w-full h-full relative duration-500" data-index="${index}">
             <!-- MẶT TRƯỚC (BÍ ẨN) -->
             <div class="backface-hidden absolute inset-0 glass-panel rounded-2xl p-6 flex flex-col items-center justify-between text-center border-2 border-yellow-500/40 hover:border-yellow-400 transition-all shadow-2xl bg-gradient-to-b from-slate-900 via-blue-950/60 to-slate-900">
-              <span class="media-badge-tag badge-image" style="position:static;margin-bottom:0.25rem;">🛡️ THỬ THÁCH PHÙ HIỆU #${index + 1}</span>
-              
               <div class="w-36 h-36 md:w-44 md:h-44 rounded-full bg-gradient-to-br from-red-900/80 to-amber-900/80 border-4 border-yellow-400 flex flex-col items-center justify-center shadow-2xl my-auto animate-pulse">
                 <span class="text-5xl md:text-6xl">⭐</span>
                 <span class="text-[11px] font-black text-yellow-300 uppercase tracking-widest mt-1.5">CAND</span>
@@ -936,7 +934,6 @@
 
               <!-- KHUNG ẢNH PHÙ HIỆU 3D PHÓNG TO TOÀN DIỆN -->
               <div class="media-slot image-slot w-full flex-1 my-3 flex items-center justify-center rounded-2xl bg-slate-950/80 border border-yellow-500/40 shadow-inner overflow-hidden relative min-h-[280px] lg:min-h-[320px]">
-                <span class="media-badge-tag badge-image">🖼️ PHÙ HIỆU 3D CHÂN THỰC</span>
                 <img src="${item.image}" alt="${item.title}" class="w-full h-full object-contain p-3 filter drop-shadow-2xl hover:scale-105 transition-transform duration-300">
               </div>
 

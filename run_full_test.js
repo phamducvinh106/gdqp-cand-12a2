@@ -229,6 +229,7 @@ async function fullTest() {
           const mediaCheck = await evalScript(`({
             videoTagCount: document.querySelectorAll('video').length,
             videoSlotCount: document.querySelectorAll('.video-slot').length,
+            mediaBadgeCount: document.querySelectorAll('.media-badge-tag').length,
             bgmAudioExists: !!document.getElementById('bgm-audio'),
             bgmAudioSrc: document.getElementById('bgm-audio') ? document.getElementById('bgm-audio').src : '',
             slide1HasParade: !!document.querySelector('article[data-slide="1"] img[src*="slide1_parade"]'),
@@ -243,6 +244,7 @@ async function fullTest() {
           })`);
           assert(mediaCheck.videoTagCount === 0, 'Đã loại bỏ 100% thẻ <video> khỏi toàn bộ bài thuyết trình');
           assert(mediaCheck.videoSlotCount === 0, 'Đã loại bỏ 100% khung .video-slot khỏi toàn bộ bài thuyết trình');
+          assert(mediaCheck.mediaBadgeCount === 0, 'Đã loại bỏ 100% các mẩu chú thích nhỏ (.media-badge-tag) khỏi toàn bộ khung ảnh trên mọi slide');
           assert(mediaCheck.bgmAudioExists, 'Thẻ audio BGM CAND #bgm-audio hiện diện trong DOM');
           assert(mediaCheck.bgmAudioSrc.includes('cand_heroic_march.wav'), 'File âm thanh chuẩn Hành khúc CAND cand_heroic_march.wav được nạp');
           assert(mediaCheck.slide1HasParade, 'Slide 1 nạp tác phẩm AI diễu binh Quảng trường Ba Đình');
