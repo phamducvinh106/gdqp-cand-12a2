@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 320" width="100%" height="100%">
+  <defs>
+    <linearGradient id="stuBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#064e3b"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="500" height="320" fill="url(#stuBg)"/>
+
+  <!-- HỌC BẠ THPT & ĐIỂM SỐ -->
+  <g transform="translate(150, 40)">
+    <rect x="0" y="0" width="200" height="230" rx="10" fill="#1e293b" stroke="#34d399" stroke-width="3"/>
+    
+    <rect x="15" y="15" width="170" height="35" rx="4" fill="#065f46"/>
+    <text x="100" y="38" font-family="'Be Vietnam Pro', sans-serif" font-size="11" font-weight="900" fill="#a7f3d0" text-anchor="middle">HỌC BẠ THPT</text>
+
+    <g transform="translate(25, 70)" font-family="'Be Vietnam Pro', sans-serif" font-size="11" fill="#cbd5e1">
+      <text x="0" y="20">Lớp 10:</text> <text x="110" y="20" font-weight="bold" fill="#34d399">Khá / Giỏi</text>
+      <text x="0" y="45">Lớp 11:</text> <text x="110" y="45" font-weight="bold" fill="#34d399">Khá / Giỏi</text>
+      <text x="0" y="70">Lớp 12:</text> <text x="110" y="70" font-weight="bold" fill="#34d399">Khá / Giỏi</text>
+    </g>
+
+    <rect x="20" y="170" width="160" height="35" rx="6" fill="#047857" stroke="#6ee7b7" stroke-width="1.5"/>
+    <text x="100" y="192" font-family="'Be Vietnam Pro', sans-serif" font-size="11" font-weight="900" fill="#ffffff" text-anchor="middle">TỐT NGHIỆP THPT</text>
+  </g>
+</svg>

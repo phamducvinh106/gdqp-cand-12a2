@@ -1,0 +1,1253 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Công Tác Tuyển Sinh & Đào Tạo CAND Việt Nam - Web Presentation</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            candRed: '#B71C1C',
+            candRedDark: '#7F0000',
+            candGold: '#D4AF37',
+            candGoldLight: '#FFE259',
+            candNavy: '#0A192F',
+            candBlueDark: '#0D1B2A',
+            candEmerald: '#2EC4B6'
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="src/styles/main.css">
+</head>
+<body class="bg-slate-950 text-slate-100 flex items-center justify-center min-h-screen">
+
+  <!-- KHUNG TRÌNH DIỄN CHUẨN 16:9 CHO MÁY CHIẾU & MÀN HÌNH LỚN -->
+  <main class="presentation-stage relative flex flex-col justify-between">
+    <!-- NHẠC NỀN CHỦ ĐỀ CÔNG AN NHÂN DÂN -->
+    <audio id="bgm-audio" loop preload="auto" src="assets/audio/cand_heroic_march.wav"></audio>
+
+    <canvas id="confetti-canvas"></canvas>
+
+    <!-- 1. HEADER ĐIỀU HƯỚNG TRANG NGHIÊM -->
+    <header class="w-full z-40 bg-slate-950/80 backdrop-blur-md border-b border-yellow-500/30 px-6 py-3 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <div class="w-10 h-10 rounded-full bg-red-700 border-2 border-yellow-400 flex items-center justify-center text-lg shadow-md font-bold text-yellow-300">
+          ⭐
+        </div>
+        <div>
+          <h1 class="text-xs md:text-sm font-black uppercase tracking-widest text-yellow-400">TỔ 2 - 12A2</h1>
+          <p class="text-xs text-slate-300 font-medium tracking-tight">Chuyên Đề Tuyển Sinh & Đào Tạo Trong Các Trường CAND • GDQP&AN</p>
+        </div>
+      </div>
+
+      <!-- ĐIỀU KHIỂN NHANH & SỐ TRANG -->
+      <div class="flex items-center space-x-4">
+        <!-- Audio BGM Button & Volume Slider -->
+        <button id="audio-toggle-btn" class="flex items-center space-x-2 px-3 py-1.5 rounded-full border border-slate-700 bg-slate-900 hover:border-yellow-400 text-xs text-slate-300 transition-all shadow">
+          <span class="audio-wave-icon">🎵</span>
+          <span class="audio-text-desc font-semibold">Nhạc: Tắt</span>
+        </button>
+
+        <!-- Volume Slider -->
+        <div class="hidden md:flex items-center space-x-1.5 px-2.5 py-1 rounded-full border border-slate-700 bg-slate-900 text-xs text-slate-300">
+          <span class="text-xs">🔊</span>
+          <input type="range" id="volume-slider" min="0" max="1" step="0.05" value="0.5" class="w-16 accent-yellow-400 cursor-pointer h-1.5 bg-slate-700 rounded-lg" title="Âm lượng nhạc">
+        </div>
+
+        <!-- Fullscreen Button -->
+        <button id="fullscreen-toggle-btn" class="p-2 rounded-lg border border-slate-700 bg-slate-900 hover:border-yellow-400 text-slate-300 hover:text-yellow-400 transition-all text-xs" title="Chế độ toàn màn hình (F11)">
+          ⛶
+        </button>
+
+        <!-- Menu Drawer Toggle -->
+        <button id="menu-toggle-btn" class="flex items-center space-x-1.5 px-3 py-1.5 rounded-lg bg-red-800/80 hover:bg-red-700 text-yellow-300 border border-yellow-500/40 text-xs font-bold transition-all shadow">
+          <span>☰</span>
+          <span>MỤC LỤC</span>
+        </button>
+
+        <!-- Slide Number Display -->
+        <div class="px-3 py-1 rounded bg-slate-900 border border-yellow-500/30 text-yellow-400 font-mono font-bold text-sm tracking-widest" id="slide-number-display">
+          01 / 12
+        </div>
+      </div>
+
+      <!-- THANH TIẾN TRÌNH TRÌNH DIỄN (PROGRESS BAR) -->
+      <div class="absolute bottom-0 left-0 w-full h-1 bg-slate-800">
+        <div id="presentation-progress" class="h-full bg-gradient-to-r from-red-600 via-yellow-500 to-amber-400 transition-all duration-300 w-1/12"></div>
+      </div>
+    </header>
+
+    <!-- 2. KHU VỰC CHỨA NỘI DUNG 12 SLIDE CHÍNH -->
+    <section class="flex-1 relative w-full h-[calc(100%-110px)] overflow-y-auto overflow-x-hidden p-4 md:p-6 lg:p-8">
+
+      <!-- ========================================================
+           SLIDE 1: MỞ MÀN KHÍ THẾ - HIỆU TRIỆU CHIẾN SĨ
+      ======================================================== -->
+      <article class="slide-container w-full h-full flex flex-col items-center justify-between text-center py-2 relative overflow-hidden rounded-2xl" data-slide="1">
+        <!-- ẢNH NỀN AI NGHỆ THUẬT QUẢNG TRƯỜNG BA ĐÌNH -->
+        <div class="absolute inset-0 overflow-hidden pointer-events-none z-0 rounded-2xl">
+          <img src="assets/images/slide1_parade.jpg" alt="Background Diễu Binh Ba Đình" class="w-full h-full object-cover opacity-20 filter blur-[0.5px]">
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/70 to-slate-950/40"></div>
+        </div>
+
+        <div class="z-10 inline-block px-6 py-2 rounded-full border border-yellow-400/60 bg-red-950/80 text-yellow-300 text-xs md:text-sm font-bold uppercase tracking-widest shadow-xl animate-pulse">
+          TỔ 2 - 12A2 • BÁO CÁO CHUYÊN ĐỀ GIÁO DỤC QUỐC PHÒNG & AN NINH
+        </div>
+
+        <h2 class="z-10 text-2xl md:text-4xl lg:text-5xl font-black text-gold-gradient uppercase tracking-tight leading-tight max-w-5xl drop-shadow-2xl">
+          CÔNG TÁC TUYỂN SINH VÀ ĐÀO TẠO TRONG CÁC TRƯỜNG CÔNG AN NHÂN DÂN
+        </h2>
+
+        <!-- KHUNG HÌNH ẢNH AI PHÓNG TO HOÀNH TRÁNG XEM TRỌN VẸN TÁC PHẨM -->
+        <div class="z-10 media-slot image-slot w-full max-w-5xl h-72 md:h-96 lg:h-[420px] my-3 rounded-2xl border-2 border-yellow-500/50 shadow-2xl overflow-hidden relative group">
+          <span class="media-badge-tag badge-image">🖼️ TÁC PHẨM AI 8K: DIỄU BINH KHÍ THẾ LỰC LƯỢNG CAND</span>
+          <img src="assets/images/slide1_parade.jpg" alt="Diễu binh Lực lượng Công an Nhân dân" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/20 to-transparent flex items-end p-5">
+            <div class="text-left">
+              <span class="text-sm md:text-base text-yellow-300 font-bold block uppercase tracking-wider drop-shadow">Khối Diễu Binh Lực Lượng CAND Trang Nghiêm</span>
+              <span class="text-xs md:text-sm text-slate-200 drop-shadow">Trung dũng, kiên cường - Bản lĩnh thép vì an ninh Tổ quốc và bình yên nhân dân</span>
+            </div>
+          </div>
+        </div>
+
+        <p class="z-10 text-sm md:text-base text-yellow-100 italic font-semibold max-w-3xl drop-shadow">
+          "Vì nước quên thân, vì dân phục vụ - Khát vọng màu áo xanh cảnh phục"
+        </p>
+
+        <!-- THẺ THÔNG TIN NHÓM THỰC HIỆN -->
+        <div class="z-10 grid grid-cols-3 gap-4 max-w-3xl w-full text-xs md:text-sm">
+          <div class="glass-panel p-3.5 rounded-xl border border-yellow-500/30 flex flex-col justify-between">
+            <span class="text-slate-400 block text-xs">Môn học</span>
+            <strong class="text-yellow-300 text-sm md:text-base font-bold">Giáo dục QP&AN</strong>
+            <span class="text-[10px] text-cyan-400 font-mono mt-1">Bài thuyết trình tương tác</span>
+          </div>
+          <div class="glass-panel p-3.5 rounded-xl border border-yellow-500/30 flex flex-col justify-between">
+            <span class="text-slate-400 block text-xs">Hình thức</span>
+            <strong class="text-yellow-300 text-sm md:text-base font-bold">Web Tương Tác 16:9</strong>
+            <span class="text-[10px] text-emerald-400 font-mono mt-1">12 Slide & 4 Mini-Game</span>
+          </div>
+          <div class="glass-panel p-3.5 rounded-xl border border-yellow-500/30 flex flex-col justify-between">
+            <span class="text-slate-400 block text-xs">Đơn vị thực hiện</span>
+            <strong class="text-yellow-300 text-sm md:text-base font-black">TỔ 2 - 12A2</strong>
+            <span class="text-[10px] text-amber-400 font-mono mt-1">Chi đoàn 12A2</span>
+          </div>
+        </div>
+
+        <button onclick="window.presentationEngine.goToSlide(2)" class="z-10 px-10 py-3 rounded-full bg-gradient-to-r from-red-700 via-red-600 to-amber-600 text-white font-black text-sm md:text-base uppercase tracking-widest border border-yellow-400/60 shadow-xl hover:scale-105 transition-all glow-gold-pulse flex items-center space-x-3">
+          <span>BẮT ĐẦU KHÁM PHÁ</span>
+          <span>➔</span>
+        </button>
+      </article>
+
+      <!-- ========================================================
+           SLIDE 2: KHỞI ĐỘNG - MINI-GAME 1: "GIẢI MÃ PHÙ HIỆU"
+      ======================================================== -->
+      <article class="slide-container hidden w-full h-full flex flex-col justify-between" data-slide="2">
+        <div class="flex items-center justify-between border-b border-yellow-500/30 pb-3">
+          <div>
+            <span class="text-xs text-red-400 font-bold uppercase tracking-wider">PHẦN 1: KHỞI ĐỘNG HỨNG KHỞI</span>
+            <h3 class="text-2xl font-black text-yellow-300">MINI-GAME 1: GIẢI MÃ PHÙ HIỆU LỰC LƯỢNG</h3>
+          </div>
+          <div class="flex items-center space-x-3">
+            <div class="px-4 py-1.5 rounded-lg bg-yellow-950/80 border border-yellow-500/50 text-xs">
+              Điểm thưởng: <span id="game1-score-display" class="font-bold text-yellow-300 text-base">0</span>
+            </div>
+            <button id="game1-reveal-all-btn" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-600 text-xs text-slate-300">
+              Lật tất cả
+            </button>
+          </div>
+        </div>
+
+        <div id="game1-cards-container" class="flex-1 grid grid-cols-1 md:grid-cols-3 gap-6 my-2 items-stretch">
+          <!-- Render tự động bởi GameEngine -->
+        </div>
+
+        <p class="text-center text-xs text-slate-400 italic">
+          💡 Hướng dẫn: Click vào các thẻ bài 3D để lật mở danh tính lực lượng, sau đó bấm nút "Trả Lời Câu Hỏi" để ghi điểm thưởng!
+        </p>
+
+        <!-- POPUP CÂU HỎI GAME 1 -->
+        <div id="game1-quiz-modal" class="hidden absolute inset-0 bg-slate-950/90 backdrop-blur-md z-50 flex items-center justify-center p-6">
+          <div class="glass-panel p-6 rounded-2xl max-w-xl w-full border-2 border-yellow-500 shadow-2xl relative">
+            <h4 class="text-lg font-bold text-yellow-300 mb-2">Thử Thách Nhận Diện Lực Lượng</h4>
+            <p id="game1-question-text" class="text-sm text-slate-200 mb-4 font-medium leading-relaxed"></p>
+            <div id="game1-options-container" class="space-y-2.5 mb-4"></div>
+            <div id="game1-explanation" class="hidden p-3 rounded-lg bg-emerald-950/60 border border-emerald-500/40 text-emerald-300 text-xs mb-4"></div>
+            <div class="flex justify-end">
+              <button id="game1-close-modal-btn" class="px-5 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-bold text-slate-200 border border-slate-600">
+                Đóng Hộp Thoại
+              </button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- ========================================================
+           SLIDE 3: BỨC TRANH TOÀN CẢNH - HỆ THỐNG 11 NHÀ TRƯỜNG CAND
+      ======================================================== -->
+      <article class="slide-container hidden w-full h-full flex flex-col justify-between relative" data-slide="3">
+        <!-- ẢNH NỀN KHUÔN VIỆN HỌC VIỆN AI -->
+        <div class="absolute inset-0 overflow-hidden pointer-events-none rounded-2xl opacity-15">
+          <img src="assets/images/slide3_campus.jpg" alt="Khuôn viên CAND" class="w-full h-full object-cover">
+        </div>
+
+        <div class="border-b border-yellow-500/30 pb-3 z-10">
+          <span class="text-xs text-red-400 font-bold uppercase tracking-wider">PHẦN 2: TỔNG QUAN HỆ THỐNG ĐÀO TẠO</span>
+          <h3 class="text-2xl font-black text-yellow-300">BỨC TRANH TOÀN CẢNH: 11 CƠ SỞ ĐÀO TẠO CÔNG AN NHÂN DÂN</h3>
+        </div>
+
+        <!-- BENTO GRID 3 CỘT (HOVER BUNG RỘNG) CÓ KHUNG ẢNH PHÓNG TO TOÀN DIỆN LẤP ĐẦY KHÔNG GIAN -->
+        <div class="flex-1 flex flex-col md:flex-row gap-5 my-2 z-10 overflow-y-auto">
+          <!-- Cột 1: Khối Học Viện -->
+          <div class="bento-col flex-1 glass-panel p-5 rounded-2xl border border-yellow-500/40 flex flex-col justify-between bg-gradient-to-b from-red-950/40 to-slate-900/90 cursor-pointer shadow-xl">
+            <div>
+              <div class="flex items-center justify-between mb-2">
+                <span class="text-3xl">🏛️</span>
+                <span class="px-2.5 py-1 rounded bg-red-900/80 text-yellow-300 text-xs font-bold border border-yellow-500/40">05 CƠ SỞ ĐÀO TẠO</span>
+              </div>
+              <h4 class="text-lg font-black text-yellow-400 uppercase tracking-wide mb-1">KHỐI HỌC VIỆN</h4>
+              <p class="text-xs md:text-sm text-slate-300 mb-2 leading-relaxed">Đào tạo đại học, thạc sĩ, tiến sĩ và cán bộ chiến lược lãnh đạo chỉ huy cấp cao của lực lượng.</p>
+              
+              <!-- KHUNG ẢNH KHỐI HỌC VIỆN PHÓNG TO TOÀN DIỆN -->
+              <div class="media-slot image-slot w-full h-64 md:h-72 lg:h-80 my-2.5 rounded-xl overflow-hidden relative border border-yellow-500/40 shadow-lg">
+                <span class="media-badge-tag badge-image">🖼️ KHUÔN VIÊN HỌC VIỆN CAND</span>
+                <img src="assets/images/slide3_campus.jpg" alt="Học viện CAND" class="w-full h-full object-cover">
+              </div>
+
+              <ul class="text-xs md:text-sm space-y-2 text-slate-200 mt-2 font-medium">
+                <li class="flex items-center space-x-2"><span class="text-yellow-400 font-bold">•</span><span>HV An ninh nhân dân (T01)</span></li>
+                <li class="flex items-center space-x-2"><span class="text-yellow-400 font-bold">•</span><span>HV Cảnh sát nhân dân (T02)</span></li>
+                <li class="flex items-center space-x-2"><span class="text-yellow-400 font-bold">•</span><span>HV Chính trị CAND (T03)</span></li>
+                <li class="flex items-center space-x-2"><span class="text-yellow-400 font-bold">•</span><span>Học viện Quốc tế (B06)</span></li>
+                <li class="flex items-center space-x-2"><span class="text-yellow-400 font-bold">•</span><span>HV Kỹ thuật & CN An ninh (T08)</span></li>
+              </ul>
+            </div>
+            <div class="text-xs text-yellow-400/90 italic mt-3 pt-2 border-t border-slate-700/60 font-semibold">
+              ⭐ Trọng tâm nghiên cứu lý luận & nghiệp vụ chuyên sâu
+            </div>
+          </div>
+
+          <!-- Cột 2: Khối Trường Đại Học -->
+          <div class="bento-col flex-1 glass-panel p-5 rounded-2xl border border-yellow-500/40 flex flex-col justify-between bg-gradient-to-b from-blue-950/40 to-slate-900/90 cursor-pointer shadow-xl">
+            <div>
+              <div class="flex items-center justify-between mb-2">
+                <span class="text-3xl">🎓</span>
+                <span class="px-2.5 py-1 rounded bg-blue-900/80 text-blue-200 text-xs font-bold border border-blue-400/40">03 CƠ SỞ ĐÀO TẠO</span>
+              </div>
+              <h4 class="text-lg font-black text-yellow-400 uppercase tracking-wide mb-1">KHỐI ĐẠI HỌC</h4>
+              <p class="text-xs md:text-sm text-slate-300 mb-2 leading-relaxed">Đào tạo cử nhân sĩ quan an ninh, cảnh sát phía Nam và kỹ sư PCCC & CNCH toàn quốc.</p>
+              
+              <!-- KHUNG ẢNH KHỐI ĐẠI HỌC PHÓNG TO TOÀN DIỆN -->
+              <div class="media-slot image-slot w-full h-64 md:h-72 lg:h-80 my-2.5 rounded-xl overflow-hidden relative border border-blue-400/40 shadow-lg">
+                <span class="media-badge-tag badge-image">🖼️ TRƯỜNG ĐẠI HỌC CSND 8K</span>
+                <img src="assets/images/slide3_university.jpg" alt="Đại học Cảnh sát nhân dân" class="w-full h-full object-cover">
+              </div>
+
+              <ul class="text-xs md:text-sm space-y-2 text-slate-200 mt-2 font-medium">
+                <li class="flex items-center space-x-2"><span class="text-yellow-400 font-bold">•</span><span>ĐH An ninh ND (T04) - Đào tạo ANND phía Nam</span></li>
+                <li class="flex items-center space-x-2"><span class="text-yellow-400 font-bold">•</span><span>ĐH Cảnh sát ND (T05) - Đào tạo CSND phía Nam</span></li>
+                <li class="flex items-center space-x-2"><span class="text-yellow-400 font-bold">•</span><span>ĐH Phòng cháy chữa cháy (T06) - Đào tạo toàn quốc</span></li>
+              </ul>
+            </div>
+            <div class="text-xs text-blue-300/90 italic mt-3 pt-2 border-t border-slate-700/60 font-semibold">
+              ⭐ Phân vùng tuyển sinh từ Quảng Trị/Đà Nẵng trở vào
+            </div>
+          </div>
+
+          <!-- Cột 3: Khối Trường Cao Đẳng -->
+          <div class="bento-col flex-1 glass-panel p-5 rounded-2xl border border-yellow-500/40 flex flex-col justify-between bg-gradient-to-b from-slate-900/60 to-slate-900/90 cursor-pointer shadow-xl">
+            <div>
+              <div class="flex items-center justify-between mb-2">
+                <span class="text-3xl">🎖️</span>
+                <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-200 text-xs font-bold border border-slate-600">03 CƠ SỞ ĐÀO TẠO</span>
+              </div>
+              <h4 class="text-lg font-black text-yellow-400 uppercase tracking-wide mb-1">KHỐI CAO ĐẲNG</h4>
+              <p class="text-xs md:text-sm text-slate-300 mb-2 leading-relaxed">Đào tạo hạ sĩ quan, nhân viên thực hành nghiệp vụ an ninh và cảnh sát tại cơ sở.</p>
+              
+              <!-- KHUNG ẢNH KHỐI CAO ĐẲNG PHÓNG TO TOÀN DIỆN -->
+              <div class="media-slot image-slot w-full h-64 md:h-72 lg:h-80 my-2.5 rounded-xl overflow-hidden relative border border-slate-600 shadow-lg">
+                <span class="media-badge-tag badge-image">🖼️ THAO TRƯỜNG RÈN LUYỆN</span>
+                <img src="assets/images/slide11_parade.jpg" alt="Cao đẳng CAND" class="w-full h-full object-cover">
+              </div>
+
+              <ul class="text-xs md:text-sm space-y-2 text-slate-200 mt-2 font-medium">
+                <li class="flex items-center space-x-2"><span class="text-yellow-400 font-bold">•</span><span>CĐ An ninh ND I (T07) - Đào tạo hạ sĩ quan ANND</span></li>
+                <li class="flex items-center space-x-2"><span class="text-yellow-400 font-bold">•</span><span>CĐ Cảnh sát ND I (T09) - Đào tạo CSND phía Bắc</span></li>
+                <li class="flex items-center space-x-2"><span class="text-yellow-400 font-bold">•</span><span>CĐ Cảnh sát ND II (T10) - Đào tạo CSND phía Nam</span></li>
+              </ul>
+            </div>
+            <div class="text-xs text-slate-300/90 italic mt-3 pt-2 border-t border-slate-700/60 font-semibold">
+              ⭐ Nguồn tuyển: Chiến sĩ nghĩa vụ CAND và xét tuyển bổ sung
+            </div>
+          </div>
+        </div>
+
+        <p class="text-center text-xs text-slate-400 italic">
+          💡 Rê chuột vào từng khối trường để phóng to chi tiết cơ sở đào tạo.
+        </p>
+      </article>
+
+      <!-- ========================================================
+           SLIDE 4: CHI TIẾT CÁC HỌC VIỆN CAND & NGÀNH MŨI NHỌN
+      ======================================================== -->
+      <article class="slide-container hidden w-full h-full flex flex-col justify-between" data-slide="4">
+        <div class="border-b border-yellow-500/30 pb-3">
+          <span class="text-xs text-red-400 font-bold uppercase tracking-wider">PHẦN 3: ĐÀO TẠO MŨI NHỌN</span>
+          <h3 class="text-2xl font-black text-yellow-300">CÁC HỌC VIỆN CÔNG AN & CHUYÊN NGÀNH TIÊU BIỂU</h3>
+        </div>
+
+        <div class="flex-1 flex flex-col md:flex-row gap-6 my-3 overflow-hidden">
+          <!-- Cột Tab Danh Sách 5 Học Viện -->
+          <div class="w-full md:w-5/12 flex flex-col space-y-2.5 overflow-y-auto pr-1" id="academy-tabs-list">
+            <button class="academy-tab-btn active p-3.5 rounded-xl border border-yellow-500 bg-red-950/80 text-left transition-all shadow-md" data-id="T01">
+              <span class="text-xs text-yellow-400 font-bold block uppercase tracking-wider">T01 • PHÍA BẮC</span>
+              <strong class="text-sm md:text-base text-slate-100 font-bold">Học viện An ninh nhân dân</strong>
+            </button>
+            <button class="academy-tab-btn p-3.5 rounded-xl border border-slate-700 bg-slate-900/80 hover:border-yellow-500/50 text-left transition-all shadow" data-id="T02">
+              <span class="text-xs text-slate-400 font-bold block uppercase tracking-wider">T02 • PHÍA BẮC</span>
+              <strong class="text-sm md:text-base text-slate-100 font-bold">Học viện Cảnh sát nhân dân</strong>
+            </button>
+            <button class="academy-tab-btn p-3.5 rounded-xl border border-slate-700 bg-slate-900/80 hover:border-yellow-500/50 text-left transition-all shadow" data-id="T03">
+              <span class="text-xs text-slate-400 font-bold block uppercase tracking-wider">T03 • TOÀN QUỐC</span>
+              <strong class="text-sm md:text-base text-slate-100 font-bold">Học viện Chính trị CAND</strong>
+            </button>
+            <button class="academy-tab-btn p-3.5 rounded-xl border border-slate-700 bg-slate-900/80 hover:border-yellow-500/50 text-left transition-all shadow" data-id="B06">
+              <span class="text-xs text-slate-400 font-bold block uppercase tracking-wider">B06 • TOÀN QUỐC</span>
+              <strong class="text-sm md:text-base text-slate-100 font-bold">Học viện Quốc tế</strong>
+            </button>
+            <button class="academy-tab-btn p-3.5 rounded-xl border border-slate-700 bg-slate-900/80 hover:border-yellow-500/50 text-left transition-all shadow" data-id="T08">
+              <span class="text-xs text-slate-400 font-bold block uppercase tracking-wider">T08 • TOÀN QUỐC</span>
+              <strong class="text-sm md:text-base text-slate-100 font-bold">HV Kỹ thuật & CN An ninh</strong>
+            </button>
+
+            <!-- MINI CARD MŨI NHỌN TÁC CHIẾN MẠNG -->
+            <div class="p-3 rounded-xl bg-slate-900/90 border border-cyan-500/40 flex items-center space-x-3 mt-auto shadow-md">
+              <img src="assets/images/slide4_cyber.jpg" alt="An ninh mạng" class="w-14 h-11 rounded-lg object-cover border border-cyan-400/50 shadow">
+              <div>
+                <span class="text-xs text-cyan-400 font-black block uppercase tracking-wide">MŨI NHỌN AN NINH MẠNG</span>
+                <span class="text-[11px] text-slate-200">Tác chiến không gian mạng & PCTP công nghệ cao</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Khung Chi Tiết Ngành Học Động -->
+          <div class="flex-1 glass-panel p-6 rounded-2xl border border-yellow-500/40 flex flex-col justify-between shadow-2xl" id="academy-detail-panel">
+            <div>
+              <div class="flex items-center justify-between border-b border-slate-700 pb-3 mb-3">
+                <div>
+                  <h4 class="text-xl md:text-2xl font-black text-yellow-300" id="academy-detail-name">Học viện An ninh nhân dân (T01)</h4>
+                  <p class="text-xs md:text-sm text-slate-300 mt-0.5" id="academy-detail-loc">Địa bàn: Tuyển sinh từ Quảng Bình trở ra phía Bắc</p>
+                </div>
+                <div class="text-3xl md:text-4xl" id="academy-detail-badge">🛡️</div>
+              </div>
+              <p class="text-xs md:text-sm text-slate-200 mb-3 leading-relaxed" id="academy-detail-desc">Cơ sở đào tạo trọng điểm về an ninh quốc gia, điều tra an ninh và công nghệ cao.</p>
+
+              <!-- KHUNG HÌNH ẢNH CHUYÊN NGÀNH HỌC VIỆN PHÓNG TO TOÀN DIỆN -->
+              <div class="media-slot image-slot w-full h-56 md:h-64 lg:h-72 mb-3 rounded-2xl border border-yellow-500/40 overflow-hidden relative shadow-xl">
+                <span class="media-badge-tag badge-image">🖼️ TÁC PHẨM AI CHUYÊN NGÀNH HỌC VIỆN</span>
+                <img id="academy-detail-image" src="assets/images/slide4_cyber.jpg" alt="Tác chiến không gian mạng" class="w-full h-full object-cover">
+              </div>
+
+              <h5 class="text-xs md:text-sm font-bold uppercase tracking-wider text-red-400 mb-2">CÁC NGÀNH ĐÀO TẠO MŨI NHỌN:</h5>
+              <div class="grid grid-cols-1 gap-2.5" id="academy-majors-list">
+                <!-- Render từ data -->
+              </div>
+            </div>
+            <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-700 text-xs text-slate-200 flex items-center space-x-2.5 mt-3 shadow">
+              <span class="text-yellow-400 text-base">⚡</span>
+              <span>100% học viên được phong cấp bậc hàm sĩ quan ngay khi tốt nghiệp và được Bộ Công an điều động công tác.</span>
+            </div>
+          </div>
+        </div>
+
+        <p class="text-center text-xs text-slate-400 italic">
+          💡 Chọn một Học viện bên trái để xem các chuyên ngành nghiệp vụ tương ứng.
+        </p>
+      </article>
+
+      <!-- ========================================================
+           SLIDE 5: ĐẠI HỌC VÙNG MIỀN & TRƯỜNG ĐẶC THÙ (PCCC)
+      ======================================================== -->
+      <article class="slide-container hidden w-full h-full flex flex-col justify-between" data-slide="5">
+        <div class="border-b border-yellow-500/30 pb-3">
+          <span class="text-xs text-red-400 font-bold uppercase tracking-wider">PHẦN 4: PHÂN VÙNG ĐỊA BÀN TUYỂN SINH</span>
+          <h3 class="text-2xl font-black text-yellow-300">ĐẠI HỌC KHU VỰC PHÍA NAM & ĐH PHÒNG CHÁY CHỮA CHÁY</h3>
+        </div>
+
+        <div class="flex-1 grid grid-cols-1 md:grid-cols-2 gap-6 my-2 items-stretch overflow-hidden">
+          <!-- MỤC 1: BẢN ĐỒ MINH HỌA PHÂN VÙNG TUYỂN SINH -->
+          <div class="glass-panel p-5 rounded-2xl border border-yellow-500/40 flex flex-col justify-between h-full shadow-xl">
+            <div class="flex-1 flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between mb-1">
+                  <h4 class="text-base font-bold text-yellow-400 uppercase tracking-wide">Bản Đồ Phân Định Tuyển Sinh</h4>
+                  <span class="px-2.5 py-1 rounded bg-red-950 text-red-300 text-xs font-bold border border-red-500/40">QUY ĐỊNH BCA</span>
+                </div>
+                <p class="text-xs md:text-sm text-slate-300 mb-1 leading-relaxed">Phân chia rõ ràng ranh giới tuyển sinh miền Bắc (từ Quảng Bình trở ra) và miền Nam (từ Quảng Trị/Đà Nẵng trở vào).</p>
+              </div>
+
+              <!-- KHUNG ẢNH BẢN ĐỒ ĐỊA BÀN PHÓNG TO TOÀN DIỆN LẤP ĐẦY KHÔNG GIAN -->
+              <div class="media-slot image-slot w-full h-64 md:h-76 lg:h-[340px] my-2.5 rounded-2xl border border-yellow-500/40 shadow-xl overflow-hidden relative">
+                <span class="media-badge-tag badge-image">🖼️ TÁC PHẨM AI 8K: KHUÔN VIÊN ĐÀO TẠO PHÍA NAM</span>
+                <img src="assets/images/slide5_southern.jpg" alt="Khuôn viên đào tạo CAND phía Nam" class="w-full h-full object-cover">
+              </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-3 text-xs md:text-sm mt-1 pt-3 border-t border-slate-700/60 font-semibold">
+              <div class="p-3 rounded-xl bg-red-950/60 border border-red-500/40 text-red-300">
+                <strong>Phía Bắc:</strong> T01, T02
+              </div>
+              <div class="p-3 rounded-xl bg-blue-950/60 border border-blue-500/40 text-blue-300">
+                <strong>Phía Nam:</strong> T04, T05
+              </div>
+            </div>
+          </div>
+
+          <!-- CHI TIẾT 2 MỤC: ĐH PHÍA NAM & ĐH PCCC -->
+          <div class="space-y-4 flex flex-col justify-between h-full">
+            <!-- MỤC 2: ĐH ANND & ĐH CSND PHÍA NAM -->
+            <div class="glass-panel p-5 rounded-2xl border-l-4 border-l-blue-500 border-yellow-500/30 shadow-xl flex-1 flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between mb-1.5">
+                  <h5 class="text-sm md:text-base font-bold text-yellow-300">Đại học An ninh ND (T04) & CSND (T05)</h5>
+                  <span class="text-xs px-2.5 py-0.5 rounded bg-blue-900 text-blue-200 font-bold">Phía Nam</span>
+                </div>
+                <p class="text-xs md:text-sm text-slate-300 leading-relaxed mb-1">
+                  Đào tạo cử nhân trinh sát, điều tra tội phạm, quản lý hành chính phục vụ công an các tỉnh/thành từ Đà Nẵng trở vào.
+                </p>
+              </div>
+              
+              <!-- KHUNG ẢNH ĐH CSND PHÍA NAM PHÓNG TO -->
+              <div class="media-slot image-slot w-full h-40 md:h-48 lg:h-52 my-1.5 rounded-xl border border-blue-500/40 shadow-lg overflow-hidden relative">
+                <span class="media-badge-tag badge-image">🖼️ ĐẠI HỌC CSND PHÍA NAM</span>
+                <img src="assets/images/slide4_csnd.jpg" alt="ĐH CSND Phía Nam" class="w-full h-full object-cover">
+              </div>
+            </div>
+
+            <!-- MỤC 3: ĐH PHÒNG CHÁY CHỮA CHÁY -->
+            <div class="glass-panel p-5 rounded-2xl border-l-4 border-l-red-500 border-yellow-500/30 shadow-xl flex-1 flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between mb-1.5">
+                  <h5 class="text-sm md:text-base font-bold text-yellow-300">Đại học Phòng Cháy Chữa Cháy (T06)</h5>
+                  <span class="text-xs px-2.5 py-0.5 rounded bg-red-900 text-yellow-300 font-bold">Toàn Quốc</span>
+                </div>
+                <p class="text-xs md:text-sm text-slate-300 leading-relaxed mb-1">
+                  Cơ sở duy nhất đào tạo kỹ sư PCCC & CNCH toàn quốc với cơ sở đào tạo tại Hà Nội và Đồng Nai.
+                </p>
+              </div>
+              
+              <!-- KHUNG ẢNH THAO TRƯỜNG PCCC PHÓNG TO -->
+              <div class="media-slot image-slot w-full h-40 md:h-48 lg:h-52 my-1.5 rounded-xl border border-red-500/40 shadow-lg overflow-hidden relative">
+                <span class="media-badge-tag badge-image">🖼️ THAO TRƯỜNG PCCC 114 TOÀN QUỐC</span>
+                <img src="assets/images/slide5_fire.jpg" alt="Thao trường PCCC" class="w-full h-full object-cover">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <p class="text-center text-xs text-slate-400 italic">
+          💡 Lưu ý: Ngành An toàn thông tin của HV ANND và ĐH PCCC tuyển sinh trên phạm vi toàn quốc!
+        </p>
+      </article>
+
+      <!-- ========================================================
+           SLIDE 6: CỦNG CỐ KIẾN THỨC - MINI-GAME 2: "GHÉP TRƯỜNG TRÚNG NGÀNH"
+      ======================================================== -->
+      <article class="slide-container hidden w-full h-full flex flex-col justify-between" data-slide="6">
+        <div class="flex items-center justify-between border-b border-yellow-500/30 pb-3">
+          <div>
+            <span class="text-xs text-red-400 font-bold uppercase tracking-wider">PHẦN 5: CỦNG CỐ KIẾN THỨC GIỮA BÀI</span>
+            <h3 class="text-2xl font-black text-yellow-300">MINI-GAME 2: GHÉP TRƯỜNG TRÚNG NGÀNH ĐÀO TẠO</h3>
+          </div>
+          <div class="flex items-center space-x-3">
+            <span id="game2-status-msg" class="text-xs text-slate-300 italic">Click 1 trường bên trái rồi click ngành tương ứng bên phải</span>
+            <button id="game2-reset-btn" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-600 text-xs text-yellow-400 font-bold">
+              🔄 Làm lại
+            </button>
+          </div>
+        </div>
+
+        <!-- KHUNG CHÍNH GAME 2: TƯƠNG TÁC NỐI DÂY & TÁC PHẨM AI CHỈ HUY CHIẾN THUẬT -->
+        <div class="flex-1 grid grid-cols-1 lg:grid-cols-12 gap-6 my-2 items-stretch overflow-hidden">
+          <!-- Cột Trái (lg:col-span-7): Canvas Kết Nối 2 Cột -->
+          <div class="lg:col-span-7 glass-panel p-5 rounded-2xl border border-yellow-500/40 relative flex flex-col justify-between shadow-xl">
+            <div class="flex items-center justify-between pb-2 border-b border-slate-700/60 mb-2">
+              <span class="text-xs font-bold text-yellow-400 uppercase tracking-wider">HỌC VIỆN & TRƯỜNG ĐÀO TẠO</span>
+              <span class="text-xs font-bold text-cyan-400 uppercase tracking-wider">CHUYÊN NGÀNH NGHIỆP VỤ</span>
+            </div>
+
+            <div class="relative flex-1 flex items-stretch justify-between px-2 my-2 min-h-[340px]">
+              <canvas id="game2-canvas" class="absolute inset-0 pointer-events-none z-10"></canvas>
+
+              <!-- Cột Trái: Danh Sách Trường -->
+              <div id="game2-schools-col" class="w-5/12 flex flex-col justify-between py-1 z-20">
+                <!-- Render bởi games.js -->
+              </div>
+
+              <!-- Cột Phải: Danh Sách Ngành -->
+              <div id="game2-majors-col" class="w-5/12 flex flex-col justify-between py-1 z-20">
+                <!-- Render bởi games.js -->
+              </div>
+            </div>
+
+            <div class="pt-2 border-t border-slate-700/60 text-[11px] text-slate-300 italic flex items-center justify-between">
+              <span>💡 Chọn 1 ô bên trái rồi click chuyên ngành bên phải</span>
+              <span class="text-emerald-400 font-semibold">• Dây nối sáng xanh khi ghép đúng</span>
+            </div>
+          </div>
+
+          <!-- Cột Phải (lg:col-span-5): Khung Nghệ Thuật AI Trung Tâm Chỉ Huy Tác Chiến -->
+          <div class="lg:col-span-5 glass-panel p-5 rounded-2xl border border-yellow-500/40 flex flex-col justify-between shadow-xl bg-gradient-to-b from-blue-950/40 to-slate-900/90">
+            <div>
+              <div class="flex items-center justify-between mb-1.5">
+                <span class="text-xs text-cyan-400 font-bold uppercase tracking-wider">TRUNG TÂM TÁC CHIẾN MÔ PHỎNG</span>
+                <span class="px-2 py-0.5 rounded bg-cyan-950 text-cyan-300 text-xs font-bold border border-cyan-500/40">AI 8K</span>
+              </div>
+              <h4 class="text-base font-black text-yellow-300 uppercase">HỆ THỐNG ĐIỀU PHỐI ĐÀO TẠO CAND</h4>
+              <p class="text-xs text-slate-300 leading-relaxed mt-1">
+                Sơ đồ liên kết mạng lưới học viện và chuyên ngành nghiệp vụ an ninh trật tự thế kỷ 21.
+              </p>
+            </div>
+
+            <!-- KHUNG ẢNH AI CHỈ HUY TÁC CHIẾN PHÓNG TO HOÀNH TRÁNG -->
+            <div class="media-slot image-slot w-full flex-1 my-3 rounded-2xl border border-cyan-400/50 overflow-hidden relative shadow-2xl min-h-[220px]">
+              <span class="media-badge-tag badge-image">🖼️ TÁC PHẨM AI 8K: TRUNG TÂM ĐIỀU HÀNH TÁC CHIẾN</span>
+              <img src="assets/images/slide6_puzzle.jpg" alt="Trung tâm điều hành đào tạo CAND" class="w-full h-full object-cover">
+            </div>
+
+            <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-700 text-xs text-slate-200 shadow">
+              <span class="text-yellow-400 font-bold">⚡ Mục tiêu rèn luyện:</span> Nắm vững đặc trưng chuyên môn của từng cơ sở để định hướng hồ sơ dự tuyển chính xác 100%.
+            </div>
+          </div>
+        </div>
+
+        <p class="text-center text-xs text-slate-400 italic">
+          💡 Chọn đúng sẽ tự động vẽ dây nối màu xanh ngọc. Nối đúng cả 4 cặp để hoàn thành thử thách!
+        </p>
+      </article>
+
+      <!-- ========================================================
+           SLIDE 7: TIÊU CHUẨN XÉT TUYỂN - "BẠN CÓ ĐỦ ĐIỀU KIỆN?"
+      ======================================================== -->
+      <article class="slide-container hidden w-full h-full flex flex-col justify-between" data-slide="7">
+        <div class="border-b border-yellow-500/30 pb-3">
+          <span class="text-xs text-red-400 font-bold uppercase tracking-wider">PHẦN 6: ĐIỀU KIỆN DỰ TUYỂN</span>
+          <h3 class="text-2xl font-black text-yellow-300">4 TRỤ CỘT TIÊU CHUẨN & SIMULATOR ĐỘ TUỔI</h3>
+        </div>
+
+        <!-- 4 KHỐI TIÊU CHUẨN DẠNG GRID CÓ KHUNG ẢNH PHÓNG TO LẤP ĐẦY -->
+        <div class="flex-1 grid grid-cols-2 lg:grid-cols-4 gap-4 my-2 items-stretch">
+          <!-- Trụ Cột 1: Chính Trị -->
+          <div class="glass-panel p-4 rounded-2xl border border-yellow-500/40 flex flex-col justify-between shadow-xl bg-gradient-to-b from-red-950/30 to-slate-900/90">
+            <div class="flex-1 flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between mb-1.5">
+                  <span class="text-2xl">📜</span>
+                  <span class="text-[10px] px-2.5 py-0.5 rounded bg-red-950 text-red-300 font-bold border border-red-500/40">BẮT BUỘC</span>
+                </div>
+                <h5 class="text-sm md:text-base font-black text-yellow-400">Chính Trị & Đạo Đức</h5>
+                <p class="text-xs text-slate-300 mt-1 line-clamp-2 leading-relaxed">Lý lịch 3 đời trong sạch, trung thành tuyệt đối với Đảng và Tổ quốc.</p>
+              </div>
+              
+              <!-- KHUNG ẢNH CHÍNH TRỊ PHÓNG TO TOÀN DIỆN LẤP ĐẦY -->
+              <div class="media-slot image-slot w-full flex-1 min-h-[220px] lg:min-h-[260px] my-2.5 rounded-xl border border-red-500/40 overflow-hidden relative shadow-lg">
+                <span class="media-badge-tag badge-image">🖼️ QUÂN HÀM & LÝ LỊCH</span>
+                <img src="assets/images/slide7_politics.jpg" alt="Lý lịch chính trị CAND" class="w-full h-full object-cover">
+              </div>
+            </div>
+            <div class="pt-2 border-t border-slate-700/60 text-xs text-emerald-400 font-semibold">
+              ✓ Đủ điều kiện kết nạp Đảng CSVN
+            </div>
+          </div>
+
+          <!-- Trụ Cột 2: Văn Hóa -->
+          <div class="glass-panel p-4 rounded-2xl border border-yellow-500/40 flex flex-col justify-between shadow-xl bg-gradient-to-b from-blue-950/30 to-slate-900/90">
+            <div class="flex-1 flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between mb-1.5">
+                  <span class="text-2xl">🎓</span>
+                  <span class="text-[10px] px-2.5 py-0.5 rounded bg-blue-950 text-blue-300 font-bold border border-blue-400/40">HỌC BẠ THPT</span>
+                </div>
+                <h5 class="text-sm md:text-base font-black text-yellow-400">Trình Độ Văn Hóa</h5>
+                <p class="text-xs text-slate-300 mt-1 line-clamp-2 leading-relaxed">Tốt nghiệp THPT, học lực từng năm THPT đạt loại Khá trở lên.</p>
+              </div>
+              
+              <!-- KHUNG ẢNH VĂN HÓA PHÓNG TO TOÀN DIỆN LẤP ĐẦY -->
+              <div class="media-slot image-slot w-full flex-1 min-h-[220px] lg:min-h-[260px] my-2.5 rounded-xl border border-blue-500/40 overflow-hidden relative shadow-lg">
+                <span class="media-badge-tag badge-image">🖼️ BẰNG & HỌC BẠ</span>
+                <img src="assets/images/slide7_study.jpg" alt="Học bạ văn hóa CAND" class="w-full h-full object-cover">
+              </div>
+            </div>
+            <div class="pt-2 border-t border-slate-700/60 text-xs text-cyan-400 font-semibold">
+              ✓ Điểm tổng kết các môn xét tuyển đạt chuẩn
+            </div>
+          </div>
+
+          <!-- Trụ Cột 3: Độ Tuổi -->
+          <div class="glass-panel p-4 rounded-2xl border border-yellow-500/40 flex flex-col justify-between shadow-xl bg-gradient-to-b from-purple-950/30 to-slate-900/90">
+            <div class="flex-1 flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between mb-1.5">
+                  <span class="text-2xl">🎂</span>
+                  <span class="text-[10px] px-2.5 py-0.5 rounded bg-purple-950 text-purple-300 font-bold border border-purple-400/40">GIỚI HẠN TUỔI</span>
+                </div>
+                <h5 class="text-sm md:text-base font-black text-yellow-400">Độ Tuổi Quy Định</h5>
+                <p class="text-xs text-slate-300 mt-1 line-clamp-2 leading-relaxed">Kinh: ≤ 22; Dân tộc thiểu số: ≤ 25; Chiến sĩ nghĩa vụ: ≤ 30.</p>
+              </div>
+              
+              <!-- KHUNG ẢNH ĐỘ TUỔI PHÓNG TO TOÀN DIỆN LẤP ĐẦY -->
+              <div class="media-slot image-slot w-full flex-1 min-h-[220px] lg:min-h-[260px] my-2.5 rounded-xl border border-purple-500/40 overflow-hidden relative shadow-lg">
+                <span class="media-badge-tag badge-image">🖼️ ĐỘ TUỔI THANH NIÊN</span>
+                <img src="assets/images/slide7_age.jpg" alt="Độ tuổi quy định CAND" class="w-full h-full object-cover">
+              </div>
+            </div>
+            <div class="pt-2 border-t border-slate-700/60 text-xs text-purple-400 font-semibold">
+              ✓ Tính chính xác đến năm đăng ký dự tuyển
+            </div>
+          </div>
+
+          <!-- Trụ Cột 4: Thể Lực -->
+          <div class="glass-panel p-4 rounded-2xl border border-yellow-500/40 flex flex-col justify-between shadow-xl bg-gradient-to-b from-amber-950/30 to-slate-900/90">
+            <div class="flex-1 flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between mb-1.5">
+                  <span class="text-2xl">💪</span>
+                  <span class="text-[10px] px-2.5 py-0.5 rounded bg-amber-950 text-amber-300 font-bold border border-amber-400/40">THỂ CHẤT CAND</span>
+                </div>
+                <h5 class="text-sm md:text-base font-black text-yellow-400">Tiêu Chuẩn Thể Lực</h5>
+                <p class="text-xs text-slate-300 mt-1 line-clamp-2 leading-relaxed">Nam ≥ 1m64, Nữ ≥ 1m58. Sức khỏe loại 1 hoặc loại 2.</p>
+              </div>
+              
+              <!-- KHUNG ẢNH THỂ LỰC PHÓNG TO TOÀN DIỆN LẤP ĐẦY -->
+              <div class="media-slot image-slot w-full flex-1 min-h-[220px] lg:min-h-[260px] my-2.5 rounded-xl border border-amber-500/40 overflow-hidden relative shadow-lg">
+                <span class="media-badge-tag badge-image">🖼️ KHÁM SỨC KHỎE</span>
+                <img src="assets/images/slide7_medical.jpg" alt="Kiểm tra thể lực CAND" class="w-full h-full object-cover">
+              </div>
+            </div>
+            <div class="pt-2 border-t border-slate-700/60 text-xs text-amber-400 font-semibold">
+              ✓ Thị lực, chỉ số BMI và vận động đạt yêu cầu
+            </div>
+          </div>
+        </div>
+
+        <!-- THANH TRƯỢT SIMULATOR ĐỘ TUỔI TƯƠNG TÁC -->
+        <div class="glass-panel p-5 md:p-6 rounded-2xl border border-yellow-500/40 bg-slate-900/90 flex flex-col md:flex-row items-center justify-between gap-5 shadow-xl">
+          <div class="w-full md:w-1/2">
+            <div class="flex items-center justify-between text-xs md:text-sm mb-1.5">
+              <span class="font-bold text-yellow-300">Thử nghiệm kiểm tra độ tuổi của bạn:</span>
+              <span id="age-slider-value" class="text-base font-black text-yellow-400">18 Tuổi</span>
+            </div>
+            <input type="range" id="age-slider" min="16" max="30" value="18" class="w-full accent-yellow-400 cursor-pointer h-2 bg-slate-700 rounded-lg">
+            <div class="flex justify-between text-[11px] text-slate-400 mt-1.5 font-medium">
+              <span>16 tuổi</span>
+              <span class="text-red-400 font-bold">22 tuổi (Kinh)</span>
+              <span class="text-emerald-400 font-bold">25 tuổi (DTTS)</span>
+              <span>30 tuổi</span>
+            </div>
+          </div>
+
+          <div class="flex items-center space-x-4 w-full md:w-auto">
+            <select id="ethnicity-select" class="px-4 py-2.5 rounded-xl bg-slate-800 border border-slate-600 text-xs md:text-sm text-slate-200 font-medium">
+              <option value="kinh">Dân tộc Kinh</option>
+              <option value="minority">Dân tộc thiểu số</option>
+            </select>
+            <div id="age-verdict-tag" class="px-5 py-2.5 rounded-xl bg-emerald-900/80 border border-emerald-400 text-emerald-300 text-xs md:text-sm font-bold whitespace-nowrap shadow">
+              ĐỦ ĐIỀU KIỆN ĐỘ TUỔI
+            </div>
+          </div>
+        </div>
+
+        <p class="text-center text-xs text-slate-400 italic">
+          💡 Hãy kéo thanh trượt tuổi để kiểm chứng mốc quy định của Bộ Công an!
+        </p>
+      </article>
+
+      <!-- ========================================================
+           SLIDE 8: LỘ TRÌNH DỰ TUYỂN (INTERACTIVE TIMELINE)
+      ======================================================== -->
+      <article class="slide-container hidden w-full h-full flex flex-col justify-between" data-slide="8">
+        <div class="border-b border-yellow-500/30 pb-3">
+          <span class="text-xs text-red-400 font-bold uppercase tracking-wider">PHẦN 7: QUY TRÌNH NỘP HỒ SƠ</span>
+          <h3 class="text-2xl font-black text-yellow-300">LỘ TRÌNH 2 BƯỚC THAM GIA XÉT TUYỂN CAND</h3>
+        </div>
+
+        <!-- HORIZONTAL STEPPER 2 GIAI ĐOẠN CÓ KHUNG ẢNH PHÓNG TO TOÀN DIỆN -->
+        <div class="flex-1 flex flex-col md:flex-row gap-6 my-2 overflow-y-auto">
+          <!-- Bước 1 -->
+          <div class="flex-1 glass-panel p-6 rounded-2xl border-2 border-red-700/80 flex flex-col justify-between bg-gradient-to-b from-red-950/40 to-slate-900/90 shadow-2xl">
+            <div class="flex-1 flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between mb-2">
+                  <div class="w-10 h-10 rounded-full bg-red-700 text-white font-black text-base flex items-center justify-center shadow-lg border border-yellow-400">
+                    1
+                  </div>
+                  <span class="px-3 py-1 rounded bg-red-900/80 text-yellow-300 text-xs font-bold border border-yellow-500/30">THÁNG 3 - 5 HÀNG NĂM</span>
+                </div>
+                <h4 class="text-lg font-bold text-yellow-400 mb-1">BƯỚC 1: SƠ TUYỂN TẠI ĐỊA PHƯƠNG</h4>
+                <p class="text-xs text-emerald-400 font-semibold mb-2">
+                  Tại Công an cấp xã/phường nơi đăng ký thường trú
+                </p>
+              </div>
+
+              <!-- KHUNG ẢNH TIẾP NHẬN HỒ SƠ PHÓNG TO TOÀN DIỆN -->
+              <div class="media-slot image-slot w-full h-56 md:h-64 lg:h-72 my-2 rounded-2xl border border-yellow-500/40 overflow-hidden relative shadow-xl">
+                <span class="media-badge-tag badge-image">🖼️ TÁC PHẨM AI 8K: TIẾP NHẬN HỒ SƠ TẠI ĐỊA PHƯƠNG</span>
+                <img src="assets/images/slide8_local_police.jpg" alt="Sơ tuyển địa phương" class="w-full h-full object-cover">
+              </div>
+
+              <ul class="text-xs md:text-sm space-y-2 text-slate-200">
+                <li class="flex items-start space-x-2">
+                  <span class="text-yellow-400 font-bold">✓</span>
+                  <span>Mua và kê khai hồ sơ đăng ký dự tuyển sơ tuyển tại Công an cấp xã.</span>
+                </li>
+                <li class="flex items-start space-x-2">
+                  <span class="text-yellow-400 font-bold">✓</span>
+                  <span>Thẩm tra lý lịch chính trị bản thân và gia đình 3 đời nghiêm ngặt.</span>
+                </li>
+                <li class="flex items-start space-x-2">
+                  <span class="text-yellow-400 font-bold">✓</span>
+                  <span>Khám sức khỏe tập trung tại Bệnh xá Công an tỉnh/thành phố.</span>
+                </li>
+              </ul>
+            </div>
+            <div class="p-3 rounded-xl bg-red-900/60 border border-red-500/40 text-xs text-yellow-300 font-medium mt-2 shadow">
+              ⚠️ Không đạt sơ tuyển địa phương = KHÔNG THỂ đăng ký xét tuyển đại học CAND!
+            </div>
+          </div>
+
+          <!-- Bước 2 -->
+          <div class="flex-1 glass-panel p-6 rounded-2xl border-2 border-yellow-500/50 flex flex-col justify-between bg-gradient-to-b from-blue-950/40 to-slate-900/90 shadow-2xl">
+            <div class="flex-1 flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between mb-2">
+                  <div class="w-10 h-10 rounded-full bg-yellow-500 text-slate-950 font-black text-base flex items-center justify-center shadow-lg border border-yellow-200">
+                    2
+                  </div>
+                  <span class="px-3 py-1 rounded bg-blue-900/80 text-blue-200 text-xs font-bold border border-blue-400/30">THÁNG 7 HÀNG NĂM</span>
+                </div>
+                <h4 class="text-lg font-bold text-yellow-400 mb-1">BƯỚC 2: ĐĂNG KÝ XÉT TUYỂN ĐẠI HỌC</h4>
+                <p class="text-xs text-blue-300 font-semibold mb-2">
+                  Cổng thông tin Bộ GD&ĐT & Dự thi Bài thi đánh giá BCA
+                </p>
+              </div>
+
+              <!-- KHUNG ẢNH PHÒNG THI BCA PHÓNG TO TOÀN DIỆN -->
+              <div class="media-slot image-slot w-full h-56 md:h-64 lg:h-72 my-2 rounded-2xl border border-blue-400/50 overflow-hidden relative shadow-xl">
+                <span class="media-badge-tag badge-image">🖼️ TÁC PHẨM AI 8K: PHÒNG THI ĐÁNH GIÁ BCA</span>
+                <img src="assets/images/slide8_exam_hall.jpg" alt="Phòng thi Bộ Công An" class="w-full h-full object-cover">
+              </div>
+
+              <ul class="text-xs md:text-sm space-y-2 text-slate-200">
+                <li class="flex items-start space-x-2">
+                  <span class="text-yellow-400 font-bold">✓</span>
+                  <span>Đăng ký nguyện vọng 1 vào trường CAND theo chỉ dẫn trên Cổng BCA.</span>
+                </li>
+                <li class="flex items-start space-x-2">
+                  <span class="text-yellow-400 font-bold">✓</span>
+                  <span>Tham gia kỳ thi tốt nghiệp THPT quốc gia để lấy điểm các môn thi.</span>
+                </li>
+                <li class="flex items-start space-x-2">
+                  <span class="text-yellow-400 font-bold">✓</span>
+                  <span>Dự thi Bài thi đánh giá của Bộ Công an (Mã bài thi CA1 hoặc CA2).</span>
+                </li>
+              </ul>
+            </div>
+            <div class="p-3 rounded-xl bg-yellow-900/60 border border-yellow-500/40 text-xs text-yellow-300 font-medium mt-2 shadow">
+              ⭐ Bài thi BCA chiếm tỷ trọng 60% tổng điểm xét tuyển đại học CAND!
+            </div>
+          </div>
+        </div>
+
+        <p class="text-center text-xs text-slate-400 italic">
+          💡 Hai bước bắt buộc nối tiếp nhau để hiện thực hóa ước mơ trở thành sĩ quan Công an.
+        </p>
+      </article>
+
+      <!-- ========================================================
+           SLIDE 9: BA PHƯƠNG THỨC XÉT TUYỂN ĐẠI HỌC CHÍNH QUY
+      ======================================================== -->
+      <article class="slide-container hidden w-full h-full flex flex-col justify-between" data-slide="9">
+        <div class="border-b border-yellow-500/30 pb-3">
+          <span class="text-xs text-red-400 font-bold uppercase tracking-wider">PHẦN 8: PHƯƠNG THỨC XÉT TUYỂN</span>
+          <h3 class="text-2xl font-black text-yellow-300">3 PHƯƠNG THỨC TUYỂN SINH ĐẠI HỌC CAND CHÍNH QUY</h3>
+        </div>
+
+        <!-- MATRIX 3 CỘT VỚI KHUNG ẢNH PHÓNG TO TOÀN DIỆN LẤP ĐẦY KHÔNG GIAN -->
+        <div class="flex-1 grid grid-cols-1 md:grid-cols-3 gap-5 my-2 overflow-y-auto">
+          <!-- PT 1 -->
+          <div class="glass-panel p-5 rounded-2xl border border-yellow-500/40 flex flex-col justify-between shadow-xl">
+            <div class="flex-1 flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between mb-1.5">
+                  <span class="text-xs md:text-sm font-bold text-yellow-400">PHƯƠNG THỨC 1</span>
+                  <span class="px-2 py-0.5 rounded bg-emerald-950 text-emerald-300 text-xs font-bold border border-emerald-500/40">TUYỂN THẲNG</span>
+                </div>
+                <h4 class="text-base font-bold text-slate-100 mb-1">Giải Olympic & HSG Quốc Gia</h4>
+                <p class="text-xs text-slate-300 mb-1 leading-relaxed">Thí sinh đạt giải Nhất, Nhì, Ba môn Toán, Lý, Hóa, Văn, Sử, Tin trong kỳ thi HSG quốc gia...</p>
+              </div>
+              
+              <!-- KHUNG ẢNH PT1 PHÓNG TO -->
+              <div class="media-slot image-slot w-full flex-1 min-h-[260px] lg:min-h-[320px] my-2.5 rounded-2xl border border-emerald-500/40 overflow-hidden relative shadow-lg">
+                <span class="media-badge-tag badge-image">🖼️ TÁC PHẨM AI 8K: HUY CHƯƠNG OLYMPIC</span>
+                <img src="assets/images/slide9_olympic.jpg" alt="Huy chương Olympic" class="w-full h-full object-cover">
+              </div>
+
+              <div class="p-2.5 rounded-xl bg-slate-900 border border-slate-700 text-xs text-slate-200 font-medium">
+                Toán, Lý, Hóa, Văn, Sử, Địa, Tin học, Tiếng Anh.
+              </div>
+            </div>
+            <div class="mt-3 pt-2 border-t border-slate-700 text-xs text-emerald-400 font-bold">
+              ✓ Miễn hoàn toàn bài thi đánh giá của Bộ Công an
+            </div>
+          </div>
+
+          <!-- PT 2 -->
+          <div class="glass-panel p-5 rounded-2xl border-2 border-yellow-400 flex flex-col justify-between bg-gradient-to-b from-yellow-950/30 to-slate-900/90 shadow-2xl">
+            <div class="flex-1 flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between mb-1.5">
+                  <span class="text-xs md:text-sm font-bold text-yellow-400">PHƯƠNG THỨC 2</span>
+                  <span class="px-2 py-0.5 rounded bg-yellow-950 text-yellow-300 text-xs font-bold border border-yellow-400/40">IELTS + BÀI THI</span>
+                </div>
+                <h4 class="text-base font-bold text-slate-100 mb-1">Chứng Chỉ Ngoại Ngữ Quốc Tế</h4>
+                <p class="text-xs text-slate-300 mb-1 leading-relaxed">IELTS Academic ≥ 7.5, TOEFL iBT ≥ 110, HSK cấp 5 trở lên kết hợp bài thi đánh giá BCA.</p>
+              </div>
+              
+              <!-- KHUNG ẢNH PT2 PHÓNG TO -->
+              <div class="media-slot image-slot w-full flex-1 min-h-[260px] lg:min-h-[320px] my-2.5 rounded-2xl border border-yellow-500/40 overflow-hidden relative shadow-lg">
+                <span class="media-badge-tag badge-image">🖼️ TÁC PHẨM AI 8K: CHỨNG CHỈ NGOẠI NGỮ</span>
+                <img src="assets/images/slide9_ielts.jpg" alt="Chứng chỉ IELTS" class="w-full h-full object-cover">
+              </div>
+
+              <div class="p-2.5 rounded-xl bg-red-900/80 border border-yellow-400 text-xs font-bold text-yellow-300 shadow">
+                ⭐ BẮT BUỘC DỰ THI BÀI THI ĐÁNH GIÁ BCA
+              </div>
+            </div>
+            <div class="mt-3 pt-2 border-t border-slate-700 text-xs text-yellow-300 font-bold">
+              ✓ Ưu tiên đào tạo cán bộ hội nhập quốc tế
+            </div>
+          </div>
+
+          <!-- PT 3 -->
+          <div class="glass-panel p-5 rounded-2xl border-2 border-red-500 flex flex-col justify-between bg-gradient-to-b from-red-950/30 to-slate-900/90 shadow-2xl">
+            <div class="flex-1 flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between mb-1.5">
+                  <span class="text-xs md:text-sm font-bold text-red-400">PHƯƠNG THỨC 3 (ĐẠI TRÀ)</span>
+                  <span class="px-2 py-0.5 rounded bg-red-950 text-red-300 text-xs font-bold border border-red-500/40">70 - 80% CHỈ TIÊU</span>
+                </div>
+                <h4 class="text-base font-bold text-slate-100 mb-1">Điểm Thi THPT + Bài Thi BCA</h4>
+                <p class="text-xs text-slate-300 mb-1 leading-relaxed">Phương thức chủ đạo tuyển sinh đại học hàng năm của lực lượng Công an Nhân dân.</p>
+              </div>
+              
+              <!-- KHUNG ẢNH PT3 PHÓNG TO -->
+              <div class="media-slot image-slot w-full flex-1 min-h-[260px] lg:min-h-[320px] my-2.5 rounded-2xl border border-red-500/50 overflow-hidden relative shadow-lg">
+                <span class="media-badge-tag badge-image">🖼️ TÁC PHẨM AI 8K: ĐỀ THI ĐÁNH GIÁ BCA</span>
+                <img src="assets/images/slide9_thpt_exam.jpg" alt="Đề thi BCA và THPT" class="w-full h-full object-cover">
+              </div>
+
+              <div class="p-2.5 rounded-xl bg-red-900/80 border border-yellow-400 text-xs font-bold text-yellow-300 shadow">
+                ⭐ 40% ĐIỂM THPT + 60% BÀI THI BCA
+              </div>
+            </div>
+            <div class="mt-3 pt-2 border-t border-slate-700 text-xs text-red-300 font-bold">
+              ✓ Kỳ thi tuyển sinh trọng điểm quy mô toàn quốc
+            </div>
+          </div>
+        </div>
+
+        <p class="text-center text-xs text-slate-400 italic">
+          💡 Lưu ý: Hệ Trung cấp CAND tuyển sinh từ nguồn chiến sĩ nghĩa vụ hoặc thí sinh dự tuyển đại học chưa trúng tuyển.
+        </p>
+      </article>
+
+      <!-- ========================================================
+           SLIDE 10: TÌNH HUỐNG THỰC TẾ - MINI-GAME 3: "PHÒNG SƠ TUYỂN ẢO"
+      ======================================================== -->
+      <article class="slide-container hidden w-full h-full flex flex-col justify-between" data-slide="10">
+        <div class="flex items-center justify-between border-b border-yellow-500/30 pb-3">
+          <div>
+            <span class="text-xs text-red-400 font-bold uppercase tracking-wider">PHẦN 9: VẬN DỤNG THỰC TẾ</span>
+            <h3 class="text-2xl font-black text-yellow-300">MINI-GAME 3: PHÒNG SƠ TUYỂN ẢO - ĐÓNG VAI CÁN BỘ TIẾP NHẬN</h3>
+          </div>
+          <div class="px-3.5 py-1.5 rounded-xl bg-red-950/80 border border-yellow-500/40 text-xs font-bold text-yellow-400" id="game3-doc-counter">
+            HỒ SƠ 1 / 3
+          </div>
+        </div>
+
+        <!-- BÀN LÀM VIỆC CÁN BỘ & TẬP HỒ SƠ: CHIA 12 CỘT CÂN ĐỐI 100% CHIỀU NGANG -->
+        <div class="flex-1 grid grid-cols-1 lg:grid-cols-12 gap-6 my-2 items-stretch overflow-hidden">
+          <!-- Cột Trái (lg:col-span-7): Tập Hồ Sơ Thí Sinh -->
+          <div class="lg:col-span-7 glass-panel p-6 rounded-2xl border-2 border-yellow-500/40 relative bg-gradient-to-br from-slate-900 to-blue-950 shadow-2xl flex flex-col justify-between">
+            <div class="relative z-10">
+              <div class="flex items-center justify-between border-b border-slate-700/80 pb-3 mb-3">
+                <div class="flex items-center space-x-4">
+                  <div class="w-14 h-14 rounded-2xl bg-slate-800 border-2 border-yellow-500/50 flex items-center justify-center text-3xl shadow-inner" id="game3-candidate-photo">
+                    👨‍🎓
+                  </div>
+                  <div>
+                    <span class="text-[10px] text-cyan-400 uppercase tracking-widest font-black block">HỒ SƠ ĐĂNG KÝ SƠ TUYỂN CAND</span>
+                    <h4 class="text-xl font-black text-yellow-300" id="game3-candidate-name">Nguyễn Văn A</h4>
+                  </div>
+                </div>
+                <div class="px-3 py-1 rounded-xl bg-red-950/80 border border-red-500/40 text-xs text-yellow-300 font-bold shadow">
+                  MẪU ĐK-01/BCA
+                </div>
+              </div>
+
+              <!-- Chi tiết hồ sơ -->
+              <div class="grid grid-cols-2 gap-3 text-xs md:text-sm my-3">
+                <div class="p-3 rounded-xl bg-slate-800/80 border border-slate-700 shadow-sm">
+                  <span class="text-slate-400 block text-[10px] uppercase font-bold mb-0.5">Năm sinh & Độ tuổi</span>
+                  <strong class="text-slate-100 text-sm md:text-base font-bold" id="game3-candidate-dob">2001 (23 tuổi)</strong>
+                </div>
+                <div class="p-3 rounded-xl bg-slate-800/80 border border-slate-700 shadow-sm">
+                  <span class="text-slate-400 block text-[10px] uppercase font-bold mb-0.5">Thành phần dân tộc</span>
+                  <strong class="text-slate-100 text-sm md:text-base font-bold" id="game3-candidate-ethnicity">Dân tộc Kinh</strong>
+                </div>
+                <div class="p-3 rounded-xl bg-slate-800/80 border border-slate-700 shadow-sm">
+                  <span class="text-slate-400 block text-[10px] uppercase font-bold mb-0.5">Học lực & Tốt nghiệp THPT</span>
+                  <strong class="text-slate-100 text-sm md:text-base font-bold" id="game3-candidate-edu">Tốt nghiệp THPT Giỏi</strong>
+                </div>
+                <div class="p-3 rounded-xl bg-slate-800/80 border border-slate-700 shadow-sm">
+                  <span class="text-slate-400 block text-[10px] uppercase font-bold mb-0.5">Tiêu chuẩn thể lực & Thị lực</span>
+                  <strong class="text-slate-100 text-sm md:text-base font-bold" id="game3-candidate-health">Sức khỏe Loại 1</strong>
+                </div>
+                <div class="col-span-2 p-3 rounded-xl bg-slate-800/80 border border-slate-700 shadow-sm">
+                  <span class="text-slate-400 block text-[10px] uppercase font-bold mb-0.5">Phương thức & Nguyện vọng xét tuyển</span>
+                  <strong class="text-yellow-300 text-sm md:text-base font-bold" id="game3-candidate-method">Phương thức 3 vào Học viện CSND</strong>
+                </div>
+              </div>
+            </div>
+
+            <!-- Vị trí in dấu mộc -->
+            <div id="game3-stamp-container" class="my-auto text-center h-16 flex items-center justify-center border-2 border-dashed border-slate-700 rounded-xl bg-slate-950/40">
+              <!-- Render stamp -->
+            </div>
+          </div>
+
+          <!-- Cột Phải (lg:col-span-5): Khung Ảnh AI Bàn Tiếp Dân & 2 Con Dấu Quyết Định -->
+          <div class="lg:col-span-5 glass-panel p-6 rounded-2xl border-2 border-yellow-500/40 flex flex-col justify-between shadow-2xl bg-gradient-to-b from-blue-950/40 to-slate-900/90">
+            <div>
+              <div class="flex items-center justify-between mb-1.5">
+                <span class="text-xs text-yellow-400 font-bold uppercase tracking-wider">BÀN LÀM VIỆC CÁN BỘ TIẾP DÂN</span>
+                <span class="px-2.5 py-0.5 rounded bg-red-950 text-red-300 text-xs font-bold border border-red-500/40">SƠ TUYỂN CAND</span>
+              </div>
+              <h4 class="text-base font-black text-yellow-300 uppercase">TIẾP NHẬN & THẨM TRA HỒ SƠ</h4>
+              <p class="text-xs text-slate-300 leading-relaxed mt-1">
+                Cán bộ Công an cấp xã đối chiếu tiêu chuẩn, đóng dấu phê duyệt hoặc từ chối theo thẩm quyền.
+              </p>
+            </div>
+
+            <!-- KHUNG ẢNH AI BÀN LÀM VIỆC CÁN BỘ PHÓNG TO HOÀNH TRÁNG -->
+            <div class="media-slot image-slot w-full flex-1 my-3 rounded-2xl border border-yellow-500/40 overflow-hidden relative shadow-2xl min-h-[220px]">
+              <span class="media-badge-tag badge-image">🖼️ TÁC PHẨM AI 8K: BÀN TIẾP DÂN SƠ TUYỂN</span>
+              <img src="assets/images/slide10_desk.jpg" alt="Bàn tiếp dân sơ tuyển CAND" class="w-full h-full object-cover">
+            </div>
+
+            <!-- 2 CON DẤU MỘC ĐỎ QUYẾT ĐỊNH -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mt-1">
+              <button id="game3-btn-approve" class="p-3.5 rounded-xl bg-gradient-to-r from-emerald-700 to-green-600 hover:from-emerald-600 hover:to-green-500 text-white font-black text-xs md:text-sm uppercase tracking-wider border-2 border-emerald-400 shadow-xl transition-all transform hover:scale-102 active:scale-95 flex items-center justify-center space-x-2.5">
+                <span class="text-2xl">✅</span>
+                <div class="text-left">
+                  <span class="block leading-tight font-black">DUYỆT HỒ SƠ</span>
+                  <span class="text-[10px] font-normal text-emerald-100 block">Đủ điều kiện quy chế</span>
+                </div>
+              </button>
+
+              <button id="game3-btn-reject" class="p-3.5 rounded-xl bg-gradient-to-r from-red-800 to-red-600 hover:from-red-700 hover:to-red-500 text-white font-black text-xs md:text-sm uppercase tracking-wider border-2 border-red-400 shadow-xl transition-all transform hover:scale-102 active:scale-95 flex items-center justify-center space-x-2.5">
+                <span class="text-2xl">❌</span>
+                <div class="text-left">
+                  <span class="block leading-tight font-black">TỪ CHỐI TIẾP NHẬN</span>
+                  <span class="text-[10px] font-normal text-red-100 block">Không đủ tiêu chuẩn</span>
+                </div>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <p class="text-center text-xs text-slate-400 italic">
+          💡 Hãy đóng vai cán bộ tuyển sinh và click con dấu đưa ra quyết định thẩm tra chính xác!
+        </p>
+
+        <!-- MODAL PHÂN TÍCH PHÁP LÝ GAME 3 -->
+        <div id="game3-verdict-modal" class="hidden absolute inset-0 bg-slate-950/90 backdrop-blur-md z-50 flex items-center justify-center p-6">
+          <div class="glass-panel p-6 rounded-2xl max-w-lg w-full border-2 border-yellow-500 shadow-2xl space-y-4">
+            <h4 id="game3-verdict-title" class="text-xl font-bold"></h4>
+            <div class="p-3 rounded-xl bg-slate-900 border border-yellow-500/30">
+              <span class="text-[10px] text-yellow-400 font-bold uppercase block mb-1">CĂN CỨ QUY CHẾ BỘ CÔNG AN:</span>
+              <p id="game3-verdict-law" class="text-xs text-slate-200 font-semibold"></p>
+            </div>
+            <p id="game3-verdict-desc" class="text-xs text-slate-300 leading-relaxed"></p>
+            <div class="flex justify-end pt-2">
+              <button id="game3-next-doc-btn" class="px-6 py-2.5 rounded-xl bg-red-700 hover:bg-red-600 text-white font-bold text-xs uppercase tracking-wider border border-yellow-400 shadow-lg">
+                HỒ SƠ TIẾP THEO ➔
+              </button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- ========================================================
+           SLIDE 11: MÔI TRƯỜNG ĐÀO TẠO & QUYỀN LỢI CHIẾN SĨ
+      ======================================================== -->
+      <article class="slide-container hidden w-full h-full flex flex-col justify-between" data-slide="11">
+        <div class="border-b border-yellow-500/30 pb-3">
+          <span class="text-xs text-red-400 font-bold uppercase tracking-wider">PHẦN 10: QUYỀN LỢI & VINH DỰ CHIẾN SĨ</span>
+          <h3 class="text-2xl font-black text-yellow-300">MÔI TRƯỜNG RÈN LUYỆN THÉP & CHẾ ĐỘ ĐÃI NGỘ 100%</h3>
+        </div>
+
+        <div class="flex-1 grid grid-cols-1 md:grid-cols-2 gap-6 my-2 items-center overflow-y-auto">
+          <!-- BÊN TRÁI: KHUNG VISUAL MÔI TRƯỜNG THAO DIỄN PHÓNG TO -->
+          <div class="glass-panel p-5 rounded-2xl border border-yellow-500/40 h-full flex flex-col justify-between bg-gradient-to-b from-red-950/40 to-slate-900 shadow-2xl">
+            <div class="flex-1 flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between mb-2">
+                  <h4 class="text-base font-black text-yellow-300 uppercase">Rèn Luyện Kỷ Luật Thép</h4>
+                  <span class="px-2.5 py-1 rounded bg-red-900 text-yellow-300 text-xs font-bold border border-yellow-500/30">QUÂN SỰ HÓA</span>
+                </div>
+                <p class="text-xs md:text-sm text-slate-200 leading-relaxed mb-1">
+                  Học viên được tôi luyện võ thuật CAND, kỹ thuật bắn súng tác chiến, điều lệnh đội ngũ và nghiệp vụ trinh sát đỉnh cao.
+                </p>
+              </div>
+
+              <!-- KHUNG ẢNH THAO DIỄN DIỄU BINH PHÓNG TO TOÀN DIỆN -->
+              <div class="media-slot image-slot w-full flex-1 min-h-[280px] lg:min-h-[340px] my-2.5 rounded-2xl border border-yellow-500/40 shadow-xl overflow-hidden relative">
+                <span class="media-badge-tag badge-image">🖼️ TÁC PHẨM AI 8K: DIỄU BINH KỶ LUẬT THÉP</span>
+                <img src="assets/images/slide11_parade.jpg" alt="Diễu binh CAND" class="w-full h-full object-cover">
+              </div>
+            </div>
+
+            <div class="grid grid-cols-3 gap-3 text-center text-xs mt-2">
+              <div class="p-2.5 rounded-xl bg-slate-900/90 border border-slate-700/80 shadow">
+                <span class="text-yellow-400 font-black block text-base md:text-lg">100%</span>
+                <span class="text-[10px] md:text-xs text-slate-300 font-semibold">Bao Cấp Toàn Phần</span>
+              </div>
+              <div class="p-2.5 rounded-xl bg-slate-900/90 border border-slate-700/80 shadow">
+                <span class="text-emerald-400 font-black block text-base md:text-lg">100%</span>
+                <span class="text-[10px] md:text-xs text-slate-300 font-semibold">Phân Công Việc Làm</span>
+              </div>
+              <div class="p-2.5 rounded-xl bg-slate-900/90 border border-slate-700/80 shadow">
+                <span class="text-red-400 font-black block text-base md:text-lg">Sĩ Quan</span>
+                <span class="text-[10px] md:text-xs text-slate-300 font-semibold">Phong Quân Hàm</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- BÊN PHẢI: 3 THẺ QUYỀN LỢI CHIẾN SĨ VỚI ẢNH AI 16:9 CHÂN THỰC -->
+          <div class="space-y-3.5 flex flex-col justify-between h-full">
+            <!-- Thẻ 1: Học Phí & Quân Trang -->
+            <div class="glass-panel p-4.5 rounded-2xl border border-yellow-500/30 shadow-lg flex items-center gap-4 flex-1">
+              <div class="media-slot image-slot w-44 md:w-52 lg:w-56 h-32 md:h-36 lg:h-40 rounded-xl border border-emerald-500/40 shrink-0 overflow-hidden relative shadow">
+                <span class="media-badge-tag badge-image" style="font-size:0.58rem;padding:0.12rem 0.35rem;">🖼️ BAO CẤP</span>
+                <img src="assets/images/slide11_scholarship.jpg" alt="Bao cấp học phí" class="w-full h-full object-cover">
+              </div>
+              <div class="flex-1">
+                <div class="flex items-center justify-between mb-1">
+                  <h5 class="text-xs md:text-sm font-bold text-yellow-300">Miễn 100% Học Phí & Nơi Ở</h5>
+                  <span class="text-[10px] px-2 py-0.5 rounded bg-emerald-950 text-emerald-300 font-bold border border-emerald-500/30">100% BAO CẤP</span>
+                </div>
+                <p class="text-xs text-slate-300 leading-relaxed">Nhà nước bao cấp toàn bộ học phí, cơ sở ăn ở tập trung, trang cấp quân trang và sinh hoạt phí hàng tháng.</p>
+              </div>
+            </div>
+
+            <!-- Thẻ 2: Y Tế & Sức Khỏe -->
+            <div class="glass-panel p-4.5 rounded-2xl border border-yellow-500/30 shadow-lg flex items-center gap-4 flex-1">
+              <div class="media-slot image-slot w-44 md:w-52 lg:w-56 h-32 md:h-36 lg:h-40 rounded-xl border border-blue-500/40 shrink-0 overflow-hidden relative shadow">
+                <span class="media-badge-tag badge-image" style="font-size:0.58rem;padding:0.12rem 0.35rem;">🖼️ Y TẾ CAND</span>
+                <img src="assets/images/slide7_medical.jpg" alt="Bệnh viện CAND" class="w-full h-full object-cover">
+              </div>
+              <div class="flex-1">
+                <div class="flex items-center justify-between mb-1">
+                  <h5 class="text-xs md:text-sm font-bold text-yellow-300">Chăm Sóc Y Tế Chuyên Ngành</h5>
+                  <span class="text-[10px] px-2 py-0.5 rounded bg-blue-950 text-blue-300 font-bold border border-blue-500/30">BẢO HIỂM 100%</span>
+                </div>
+                <p class="text-xs text-slate-300 leading-relaxed">Được khám chữa bệnh định kỳ và chăm sóc y tế toàn diện tại mạng lưới bệnh viện, bệnh xá chuyên khoa của BCA.</p>
+              </div>
+            </div>
+
+            <!-- Thẻ 3: 100% Việc Làm & Phong Hàm -->
+            <div class="glass-panel p-4.5 rounded-2xl border border-yellow-500/30 shadow-lg flex items-center gap-4 flex-1">
+              <div class="media-slot image-slot w-44 md:w-52 lg:w-56 h-32 md:h-36 lg:h-40 rounded-xl border border-red-500/40 shrink-0 overflow-hidden relative shadow">
+                <span class="media-badge-tag badge-image" style="font-size:0.58rem;padding:0.12rem 0.35rem;">🖼️ SĨ QUAN CAND</span>
+                <img src="assets/images/slide11_rank.jpg" alt="Quân hàm sĩ quan" class="w-full h-full object-cover">
+              </div>
+              <div class="flex-1">
+                <div class="flex items-center justify-between mb-1">
+                  <h5 class="text-xs md:text-sm font-bold text-yellow-300">Đảm Bảo Việc Làm 100%</h5>
+                  <span class="text-[10px] px-2 py-0.5 rounded bg-red-950 text-yellow-300 font-bold border border-red-500/30">PHONG HÀM</span>
+                </div>
+                <p class="text-xs text-slate-300 leading-relaxed">Được phong quân hàm sĩ quan nghiệp vụ ngay tại lễ tốt nghiệp và được Bộ Công an bố trí công tác 100%.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <p class="text-center text-xs text-slate-400 italic">
+          💡 Vinh dự và trách nhiệm cao cả của người chiến sĩ Công an nhân dân Việt Nam!
+        </p>
+      </article>
+
+      <!-- ========================================================
+           SLIDE 12: ĐẤU TRƯỜNG TRI THỨC (MINI-GAME 4) & BẾ MẠC
+      ======================================================== -->
+      <article class="slide-container hidden w-full h-full flex flex-col justify-between" data-slide="12">
+        <div class="flex items-center justify-between border-b border-yellow-500/30 pb-3">
+          <div>
+            <span class="text-xs text-red-400 font-bold uppercase tracking-wider">PHẦN 11: TỔNG KẾT BÀI BÁO CÁO</span>
+            <h3 class="text-2xl font-black text-yellow-300">MINI-GAME 4: ĐẤU TRƯỜNG TRI THỨC (GRAND QUIZ)</h3>
+          </div>
+          <div class="flex items-center space-x-4">
+            <div class="px-4 py-1.5 rounded-xl bg-slate-900 border border-yellow-500/40 text-xs font-bold">
+              Điểm: <span id="game4-score-display" class="font-bold text-yellow-400 text-base">0</span>
+            </div>
+            <div class="flex items-center space-x-2">
+              <span class="text-xs text-slate-300">Thời gian:</span>
+              <span id="game4-timer-seconds" class="font-mono font-bold text-emerald-400 text-lg">15s</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- THANH ĐẾM NGƯỢC 15S -->
+        <div class="w-full h-2.5 bg-slate-800 rounded-full overflow-hidden my-2">
+          <div id="game4-timer-bar" class="h-full bg-emerald-400 transition-all duration-1000 w-full"></div>
+        </div>
+
+        <!-- CÂU HỎI & 4 ĐÁP ÁN KÈM KHUNG MEDIA ĐẤU TRƯỜNG PHÓNG TO -->
+        <div class="flex-1 flex flex-col justify-between my-1 overflow-y-auto">
+          <!-- KHUNG HÌNH BỤC VINH QUANG PHÓNG TO TOÀN DIỆN -->
+          <div class="media-slot image-slot max-w-5xl mx-auto w-full h-64 md:h-76 lg:h-84 my-2 rounded-2xl border border-yellow-500/40 overflow-hidden relative shadow-2xl">
+            <span class="media-badge-tag badge-image">🖼️ TÁC PHẨM AI 8K: BỤC VINH QUANG ĐẤU TRƯỜNG CAND</span>
+            <img src="assets/images/slide12_arena.jpg" alt="Đấu trường tri thức CAND" class="w-full h-full object-cover">
+          </div>
+
+          <div class="glass-panel p-5 rounded-2xl border border-yellow-500/40 my-2 bg-slate-900/90 shadow-xl">
+            <span class="text-xs text-yellow-400 font-bold uppercase tracking-wider block mb-1.5" id="game4-question-number">CÂU HỎI 1 / 5</span>
+            <h4 class="text-base md:text-lg font-bold text-slate-100 leading-relaxed" id="game4-question-text">
+              Đang tải câu hỏi...
+            </h4>
+          </div>
+
+          <div id="game4-options-container" class="grid grid-cols-1 md:grid-cols-2 gap-3 my-1">
+            <!-- Render bởi games.js -->
+          </div>
+        </div>
+
+        <p class="text-center text-xs text-slate-400 italic">
+          💡 Trả lời nhanh để tích lũy điểm thưởng cao nhất và nhận danh hiệu Chiến Sĩ Tri Thức!
+        </p>
+
+        <!-- MODAL KẾT QUẢ VINH DANH GAME 4 -->
+        <div id="game4-result-modal" class="hidden absolute inset-0 bg-slate-950/95 backdrop-blur-lg z-50 flex items-center justify-center p-6">
+          <div class="glass-panel p-8 rounded-3xl max-w-xl w-full border-2 border-yellow-400 shadow-2xl text-center space-y-5">
+            <div class="w-20 h-20 rounded-full bg-red-700 border-4 border-yellow-400 flex items-center justify-center text-4xl mx-auto shadow-xl animate-bounce">
+              ⭐
+            </div>
+            <span class="text-xs uppercase tracking-widest text-red-400 font-black">VINH DANH HOÀN THÀNH CHUYÊN ĐỀ</span>
+            <h4 class="text-3xl font-black text-gold-gradient" id="game4-rank-title">CHIẾN SĨ TRI THỨC XUẤT SẮC</h4>
+            <div class="text-4xl font-mono font-black text-yellow-300" id="game4-final-score">5000 ĐIỂM</div>
+            <p class="text-xs md:text-sm text-slate-300 max-w-md mx-auto leading-relaxed">
+              Chúc mừng bạn đã hoàn thành xuất sắc toàn bộ 12 slide và 4 mini-game chuyên đề Công tác Tuyển sinh & Đào tạo trong các trường Công an Nhân dân do Tổ 2 - 12A2 thực hiện!
+            </p>
+            <div class="flex justify-center space-x-4 pt-3">
+              <button id="game4-restart-btn" class="px-6 py-2.5 rounded-full bg-slate-800 hover:bg-slate-700 text-xs font-bold text-slate-200 border border-slate-600">
+                🔄 Thi Đấu Lại
+              </button>
+              <button onclick="window.presentationEngine.goToSlide(1)" class="px-8 py-2.5 rounded-full bg-red-700 hover:bg-red-600 text-xs font-bold text-yellow-300 border border-yellow-400 shadow-lg">
+                Về Đầu Bài Báo Cáo
+              </button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+    </section>
+
+    <!-- 3. FOOTER ĐIỀU HƯỚNG VÀ PHÍM TẮT -->
+    <footer class="w-full z-40 bg-slate-950/80 backdrop-blur-md border-t border-yellow-500/30 px-6 py-3 flex items-center justify-between text-xs">
+      <!-- Nút Trở Về -->
+      <button id="prev-slide-btn" class="flex items-center space-x-2 px-4 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-600 font-bold transition-all shadow">
+        <span>←</span>
+        <span>TRỞ VỀ</span>
+      </button>
+
+      <!-- Gợi ý phím tắt mờ nhạt -->
+      <div class="hidden md:flex items-center space-x-3 text-slate-400 text-[11px]">
+        <span><kbd class="px-1.5 py-0.5 bg-slate-800 rounded border border-slate-600">←</kbd> <kbd class="px-1.5 py-0.5 bg-slate-800 rounded border border-slate-600">→</kbd> / <kbd class="px-1.5 py-0.5 bg-slate-800 rounded border border-slate-600">Space</kbd> Chuyển slide</span>
+        <span>•</span>
+        <span><kbd class="px-1.5 py-0.5 bg-slate-800 rounded border border-slate-600">F11</kbd> Toàn màn hình</span>
+        <span>•</span>
+        <span><kbd class="px-1.5 py-0.5 bg-slate-800 rounded border border-slate-600">M</kbd> Bật/Tắt âm thanh</span>
+      </div>
+
+      <!-- Nút Tiếp Tục -->
+      <button id="next-slide-btn" class="flex items-center space-x-2 px-5 py-2 rounded-lg bg-red-700 hover:bg-red-600 text-yellow-300 border border-yellow-400 font-bold transition-all shadow">
+        <span>TIẾP TỤC</span>
+        <span>➔</span>
+      </button>
+    </footer>
+
+    <!-- 4. MENU MỤC LỤC DRAWER TRƯỢT TỪ BÊN PHẢI -->
+    <div id="menu-overlay" class="hidden absolute inset-0 bg-slate-950/70 backdrop-blur-sm z-50"></div>
+    <aside id="menu-drawer" class="absolute top-0 right-0 h-full w-80 max-w-full bg-slate-900 border-l border-yellow-500/40 z-50 transform translate-x-full transition-transform duration-300 flex flex-col justify-between shadow-2xl">
+      <div class="p-5 border-b border-slate-700 flex items-center justify-between">
+        <h3 class="text-sm font-bold text-yellow-300 uppercase tracking-wider">MỤC LỤC BÀI THUYẾT TRÌNH</h3>
+        <button id="menu-close-btn" class="text-slate-400 hover:text-white text-lg font-bold">✕</button>
+      </div>
+
+      <nav class="flex-1 overflow-y-auto p-4 space-y-1.5 text-xs">
+        <button class="slide-toc-item w-full text-left p-2.5 rounded-lg hover:bg-slate-800 text-slate-300 transition-all" data-slide-index="1">
+          01. Mở màn khí thế - Hiệu triệu chiến sĩ
+        </button>
+        <button class="slide-toc-item w-full text-left p-2.5 rounded-lg hover:bg-slate-800 text-slate-300 transition-all" data-slide-index="2">
+          02. Khởi động - Mini-Game 1: Giải mã phù hiệu
+        </button>
+        <button class="slide-toc-item w-full text-left p-2.5 rounded-lg hover:bg-slate-800 text-slate-300 transition-all" data-slide-index="3">
+          03. Bức tranh toàn cảnh 11 trường CAND
+        </button>
+        <button class="slide-toc-item w-full text-left p-2.5 rounded-lg hover:bg-slate-800 text-slate-300 transition-all" data-slide-index="4">
+          04. Khối Học viện & Ngành đào tạo mũi nhọn
+        </button>
+        <button class="slide-toc-item w-full text-left p-2.5 rounded-lg hover:bg-slate-800 text-slate-300 transition-all" data-slide-index="5">
+          05. ĐH Miền Nam & ĐH Phòng cháy chữa cháy
+        </button>
+        <button class="slide-toc-item w-full text-left p-2.5 rounded-lg hover:bg-slate-800 text-slate-300 transition-all" data-slide-index="6">
+          06. Củng cố - Mini-Game 2: Ghép trường trúng ngành
+        </button>
+        <button class="slide-toc-item w-full text-left p-2.5 rounded-lg hover:bg-slate-800 text-slate-300 transition-all" data-slide-index="7">
+          07. Tiêu chuẩn xét tuyển & Simulator độ tuổi
+        </button>
+        <button class="slide-toc-item w-full text-left p-2.5 rounded-lg hover:bg-slate-800 text-slate-300 transition-all" data-slide-index="8">
+          08. Lộ trình 2 bước tham gia xét tuyển
+        </button>
+        <button class="slide-toc-item w-full text-left p-2.5 rounded-lg hover:bg-slate-800 text-slate-300 transition-all" data-slide-index="9">
+          09. Ba phương thức xét tuyển đại học CAND
+        </button>
+        <button class="slide-toc-item w-full text-left p-2.5 rounded-lg hover:bg-slate-800 text-slate-300 transition-all" data-slide-index="10">
+          10. Tình huống - Mini-Game 3: Phòng sơ tuyển ảo
+        </button>
+        <button class="slide-toc-item w-full text-left p-2.5 rounded-lg hover:bg-slate-800 text-slate-300 transition-all" data-slide-index="11">
+          11. Môi trường đào tạo & Quyền lợi học viên
+        </button>
+        <button class="slide-toc-item w-full text-left p-2.5 rounded-lg hover:bg-slate-800 text-slate-300 transition-all" data-slide-index="12">
+          12. Đấu trường tri thức - Mini-Game 4 & Bế mạc
+        </button>
+      </nav>
+
+      <div class="p-4 border-t border-slate-700 text-xs text-slate-400 text-center font-medium">
+        Bản quyền chuyên đề GDQP&AN • TỔ 2 - 12A2
+      </div>
+    </aside>
+
+  </main>
+
+  <!-- JAVASCRIPT LOGIC VÀ KHỞI TẠO (CHẠY ĐỘC LẬP TRÊN CẢ FILE:// VÀ HTTP://) -->
+  <script src="src/js/app.bundle.js"></script>
+</body>
+</html>

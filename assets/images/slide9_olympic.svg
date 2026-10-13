@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 350" width="100%" height="100%">
+  <defs>
+    <linearGradient id="olyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0F172A"/>
+      <stop offset="100%" stop-color="#1E293B"/>
+    </linearGradient>
+    <linearGradient id="goldMedal" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF3A8"/>
+      <stop offset="50%" stop-color="#FACC15"/>
+      <stop offset="100%" stop-color="#CA8A04"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="350" fill="url(#olyGrad)"/>
+  <!-- Huy Chương Vàng Olympic & Giải Quốc Gia -->
+  <circle cx="300" cy="140" r="75" fill="url(#goldMedal)" stroke="#FFF" stroke-width="4"/>
+  <circle cx="300" cy="140" r="62" fill="none" stroke="#92400E" stroke-width="3" stroke-dasharray="6 3"/>
+  <polygon points="300,105 310,130 338,130 315,148 324,175 300,158 276,175 285,148 262,130 290,130" fill="#92400E"/>
+  <!-- Dải Lụa Đỏ Sao Vàng Của Huy Chương -->
+  <polygon points="260,25 300,75 250,75" fill="#DC2626"/>
+  <polygon points="340,25 300,75 350,75" fill="#B91C1C"/>
+  <!-- Bằng Khen Danh Dự & Vòng Nguyệt Quế -->
+  <path d="M 170 170 C 160 250 240 280 300 280 C 360 280 440 250 430 170" fill="none" stroke="url(#goldMedal)" stroke-width="8" stroke-linecap="round"/>
+  <!-- Nhãn -->
+  <rect x="150" y="295" width="300" height="35" rx="6" fill="#1E3A8A" stroke="url(#goldMedal)" stroke-width="1.5"/>
+  <text x="300" y="318" font-family="'Be Vietnam Pro'" font-size="12" font-weight="900" fill="#FEF08A" text-anchor="middle" letter-spacing="1">
+    PT 1: TUYỂN THẲNG HSG &amp; OLYMPIC
+  </text>
+</svg>

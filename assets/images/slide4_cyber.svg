@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="100%" height="100%">
+  <defs>
+    <linearGradient id="cyberBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#050B14"/>
+      <stop offset="50%" stop-color="#0A192F"/>
+      <stop offset="100%" stop-color="#0F284E"/>
+    </linearGradient>
+    <linearGradient id="neonBlue" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00F0FF"/>
+      <stop offset="100%" stop-color="#0072FF"/>
+    </linearGradient>
+    <filter id="neonGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="675" fill="url(#cyberBg)"/>
+
+  <!-- Lưới Tọa Độ An Ninh Mạng (Cyber Grid) -->
+  <g stroke="#00F0FF" stroke-width="0.7" opacity="0.15">
+    <line x1="0" y1="100" x2="1200" y2="100"/>
+    <line x1="0" y1="200" x2="1200" y2="200"/>
+    <line x1="0" y1="300" x2="1200" y2="300"/>
+    <line x1="0" y1="400" x2="1200" y2="400"/>
+    <line x1="0" y1="500" x2="1200" y2="500"/>
+    <line x1="200" y1="0" x2="200" y2="675"/>
+    <line x1="400" y1="0" x2="400" y2="675"/>
+    <line x1="600" y1="0" x2="600" y2="675"/>
+    <line x1="800" y1="0" x2="800" y2="675"/>
+    <line x1="1000" y1="0" x2="1000" y2="675"/>
+  </g>
+
+  <!-- Màn Hình Tác Chiến Trung Tâm Chỉ Huy (Center Command Monitor) -->
+  <rect x="250" y="80" width="700" height="380" rx="16" fill="#030811" stroke="url(#neonBlue)" stroke-width="4" filter="url(#neonGlow)"/>
+  
+  <!-- Biểu Tượng Lá Chắn An Ninh Dữ Liệu -->
+  <path d="M 600 140 Q 690 140 690 200 Q 690 310 600 370 Q 510 310 510 200 Q 510 140 600 140 Z" 
+        fill="#0A1D37" stroke="#00F0FF" stroke-width="4" filter="url(#neonGlow)"/>
+  <!-- Ổ Khóa An Toàn Thông Tin -->
+  <rect x="575" y="240" width="50" height="40" rx="6" fill="#00F0FF"/>
+  <path d="M 585 240 L 585 215 C 585 200 615 200 615 215 L 615 240" fill="none" stroke="#00F0FF" stroke-width="7"/>
+
+  <!-- Các Đồ Thị Tấn Công / Phòng Thủ Công Nghệ Cao -->
+  <polyline points="280,380 340,320 400,350 460,260 520,310 580,240 640,300 700,220 760,290 820,200 900,260" 
+            fill="none" stroke="#2EC4B6" stroke-width="3" filter="url(#neonGlow)"/>
+
+  <!-- Bàn Điều Khiển & Hình Bóng Sĩ Quan Trinh Sát -->
+  <ellipse cx="600" cy="560" rx="200" ry="100" fill="#091426" stroke="#00F0FF" stroke-width="2"/>
+  <circle cx="600" cy="460" r="45" fill="#1E293B"/>
+  <path d="M 520 580 C 520 500 680 500 680 580 Z" fill="#1E293B"/>
+
+  <text x="600" y="630" font-family="'Be Vietnam Pro', sans-serif" font-size="18" font-weight="900" fill="#00F0FF" text-anchor="middle" letter-spacing="3" filter="url(#neonGlow)">
+    TRUNG TÂM TÁC CHIẾN AN NINH MẠNG VÀ PHÒNG CHỐNG TỘI PHẠM CÔNG NGHỆ CAO
+  </text>
+</svg>

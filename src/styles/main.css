@@ -1,0 +1,442 @@
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap');
+
+:root {
+  --cand-red: #B71C1C;
+  --cand-red-dark: #7F0000;
+  --cand-crimson: #C41E3A;
+  --cand-gold: #D4AF37;
+  --cand-gold-light: #FFDF00;
+  --cand-gold-dark: #AA771C;
+  --cand-navy: #0A192F;
+  --cand-blue-dark: #0D1B2A;
+  --cand-blue-light: #1E3A8A;
+  --cand-emerald: #2EC4B6;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  user-select: none;
+}
+
+body {
+  font-family: 'Be Vietnam Pro', sans-serif;
+  background-color: #050b14;
+  color: #f1f5f9;
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+}
+
+/* KHUNG TRÌNH CHIẾU TỶ LỆ 16:9 CHUẨN MÁY CHIẾU & MÀN HÌNH LỚN */
+.presentation-stage {
+  width: 100vw;
+  height: 100vh;
+  max-width: 177.78vh; /* 100vh * (16/9) */
+  max-height: 56.25vw; /* 100vw * (9/16) */
+  margin: auto;
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(circle at 50% 20%, #152238 0%, #0a1120 60%, #050b14 100%);
+  box-shadow: 0 0 60px rgba(0, 0, 0, 0.9);
+}
+
+/* HIỆU ỨNG CHỮ VÀNG KIM (GOLD TEXT) */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #FFE259 0%, #FFA751 50%, #D4AF37 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 2px 10px rgba(212, 175, 55, 0.3);
+}
+
+.text-gold-bright {
+  background: linear-gradient(180deg, #FFFFFF 0%, #FFE259 40%, #E5A93B 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.border-gold {
+  border-color: #D4AF37;
+}
+
+.bg-cand-red {
+  background-color: var(--cand-red);
+}
+
+.bg-cand-navy {
+  background-color: var(--cand-navy);
+}
+
+/* GLASSMORPHISM CARD */
+.glass-panel {
+  background: rgba(13, 27, 42, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+}
+
+.glass-panel-hover {
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.glass-panel-hover:hover {
+  border-color: rgba(212, 175, 55, 0.7);
+  box-shadow: 0 12px 40px 0 rgba(212, 175, 55, 0.2);
+  transform: translateY(-2px);
+}
+
+/* 3D FLIP CARD CHO MINI GAME 1 VÀ SLIDE 7 */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.transform-style-3d {
+  transform-style: preserve-3d;
+  transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+.card-is-flipped {
+  transform: rotateY(180deg);
+}
+
+/* HIỆU ỨNG DẬP MỘC ĐỎ (STAMP PRESS ANIMATION - GAME 3) */
+@keyframes stamp-press {
+  0% {
+    transform: scale(2.8) rotate(-18deg);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(0.92) rotate(-8deg);
+    opacity: 0.95;
+  }
+  80% {
+    transform: scale(1.05) rotate(-10deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) rotate(-10deg);
+    opacity: 1;
+  }
+}
+
+.animate-stamp {
+  animation: stamp-press 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+.stamp-box {
+  border: 4px dashed #D32F2F;
+  color: #D32F2F;
+  text-transform: uppercase;
+  font-weight: 900;
+  letter-spacing: 2px;
+  padding: 8px 16px;
+  display: inline-block;
+  border-radius: 8px;
+  background: rgba(211, 47, 47, 0.08);
+  box-shadow: inset 0 0 10px rgba(211, 47, 47, 0.2);
+}
+
+.stamp-approved {
+  border-color: #2E7D32;
+  color: #2E7D32;
+  background: rgba(46, 125, 50, 0.08);
+  box-shadow: inset 0 0 10px rgba(46, 125, 50, 0.2);
+}
+
+/* BENTO GRID EXPAND ON HOVER/CLICK (SLIDE 3) */
+.bento-col {
+  transition: flex-grow 0.4s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s ease;
+}
+
+.bento-col:hover,
+.bento-col.is-active {
+  flex-grow: 2.2 !important;
+}
+
+/* ANIMATIONS TỔNG QUAN */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes pulseGoldGlow {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 35px rgba(212, 175, 55, 0.85);
+  }
+}
+
+.glow-gold-pulse {
+  animation: pulseGoldGlow 2.5s infinite;
+}
+
+/* TIẾN TRÌNH TIMER MINI-GAME 4 */
+@keyframes timerShrink {
+  from {
+    width: 100%;
+    background-color: #2EC4B6;
+  }
+  50% {
+    background-color: #FFA751;
+  }
+  to {
+    width: 0%;
+    background-color: #E63946;
+  }
+}
+
+/* CÁC ĐƯỜNG NỐI SVG / CANVAS (GAME 2) */
+.connecting-node {
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.connecting-node:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.6);
+}
+
+.connecting-node.node-selected {
+  border-color: #FFE259 !important;
+  box-shadow: 0 0 20px rgba(255, 226, 89, 0.9) !important;
+  transform: scale(1.05);
+}
+
+.connecting-node.node-matched {
+  border-color: #2EC4B6 !important;
+  background: rgba(46, 196, 182, 0.2) !important;
+  pointer-events: none;
+}
+
+/* CANVAS CHO HIỆU ỨNG PHÁO HOA CONFETTI (GAME 4) */
+#confetti-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 999;
+}
+
+/* CUSTOM SCROLLBAR CHO CÁC KHU VỰC NỘI DUNG DÀI */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(10, 25, 47, 0.5);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(212, 175, 55, 0.5);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(212, 175, 55, 0.8);
+}
+
+/* MEDIA AI STYLES & VIDEO BACKGROUND */
+.video-bg-container {
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.media-card-hover {
+  transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.media-card-hover:hover {
+  transform: scale(1.02);
+  box-shadow: 0 10px 25px -5px rgba(212, 175, 55, 0.3);
+}
+
+input[type="range"]#volume-slider::-webkit-slider-thumb {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #FACC15;
+  cursor: pointer;
+}
+
+/* ========================================================
+   KHUNG HÌNH ẢNH & VỊ TRÍ ĐẶT VIDEO TRONG MỖI SLIDE VÀ MỖI MỤC
+   ======================================================== */
+.item-media-dual {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  width: 100%;
+}
+
+.item-media-stacked {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  width: 100%;
+}
+
+.media-slot {
+  position: relative;
+  border-radius: 1rem;
+  overflow: hidden;
+  background: radial-gradient(circle at 50% 30%, rgba(30, 41, 59, 0.9), rgba(15, 23, 42, 0.95));
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
+  transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.media-slot:hover {
+  border-color: rgba(255, 226, 89, 0.85);
+  box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
+  transform: translateY(-2px);
+}
+
+.image-slot {
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(30, 27, 75, 0.85));
+}
+
+.video-slot {
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(69, 10, 10, 0.8));
+}
+
+.media-slot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  transition: transform 0.45s ease;
+}
+
+.media-slot:hover img {
+  transform: scale(1.03);
+}
+
+.media-slot.fit-contain img,
+.media-slot img.img-contain {
+  object-fit: contain;
+  background-color: rgba(10, 15, 30, 0.85);
+}
+
+/* BADGE NHÃN ĐỊNH DANH ẢNH HOẶC VIDEO */
+.media-badge-tag {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  z-index: 20;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.2rem 0.55rem;
+  border-radius: 0.5rem;
+  font-size: 0.65rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  pointer-events: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.media-badge-tag.badge-image {
+  background: rgba(15, 23, 42, 0.9);
+  border: 1px solid rgba(56, 189, 248, 0.6);
+  color: #7dd3fc;
+}
+
+.media-badge-tag.badge-video {
+  background: rgba(127, 29, 29, 0.85);
+  border: 1px solid rgba(250, 204, 21, 0.6);
+  color: #fef08a;
+}
+
+/* NÚT PLAY OVERLAY & TIMESTAMP VIDEO */
+.video-play-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(5, 11, 20, 0.35);
+  transition: all 0.25s ease;
+  z-index: 10;
+}
+
+.video-slot:hover .video-play-overlay {
+  background: rgba(5, 11, 20, 0.15);
+}
+
+.video-play-btn {
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 9999px;
+  background: rgba(183, 28, 28, 0.85);
+  border: 2px solid rgba(255, 226, 89, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 0.85rem;
+  box-shadow: 0 0 15px rgba(255, 226, 89, 0.5);
+  transition: transform 0.2s ease;
+}
+
+.video-slot:hover .video-play-btn {
+  transform: scale(1.12);
+  box-shadow: 0 0 20px rgba(255, 226, 89, 0.8);
+}
+
+.video-timestamp {
+  position: absolute;
+  bottom: 0.35rem;
+  right: 0.35rem;
+  z-index: 20;
+  padding: 0.1rem 0.35rem;
+  border-radius: 0.25rem;
+  background: rgba(0, 0, 0, 0.75);
+  color: #cbd5e1;
+  font-family: monospace;
+  font-size: 0.65rem;
+  font-weight: bold;
+}
+
+/* CHIỀU CAO CÁC CẤP KHUNG MEDIA */
+.media-h-xs { height: 4.5rem; }
+.media-h-sm { height: 6rem; }
+.media-h-md { height: 8rem; }
+.media-h-lg { height: 11rem; }
+.media-h-xl { height: 14rem; }
+

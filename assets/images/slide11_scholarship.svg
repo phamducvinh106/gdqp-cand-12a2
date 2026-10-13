@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 320" width="100%" height="100%">
+  <defs>
+    <linearGradient id="schBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#78350f"/>
+    </linearGradient>
+    <linearGradient id="schGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fef08a"/>
+      <stop offset="100%" stop-color="#eab308"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="500" height="320" fill="url(#schBg)"/>
+
+  <g transform="translate(150, 40)">
+    <rect x="0" y="0" width="200" height="230" rx="12" fill="#1e293b" stroke="url(#schGold)" stroke-width="3"/>
+    
+    <!-- Đồng tiền vàng 100% -->
+    <circle cx="100" cy="70" r="45" fill="#ca8a04" stroke="#fef08a" stroke-width="3"/>
+    <text x="100" y="76" font-family="'Be Vietnam Pro', sans-serif" font-size="24" font-weight="900" fill="#ffffff" text-anchor="middle">100%</text>
+
+    <text x="100" y="140" font-family="'Be Vietnam Pro', sans-serif" font-size="13" font-weight="900" fill="#fde047" text-anchor="middle">MIỄN HỌC PHÍ</text>
+    <text x="100" y="160" font-family="'Be Vietnam Pro', sans-serif" font-size="11" font-weight="bold" fill="#fef08a" text-anchor="middle">BAO CẤP TOÀN BỘ</text>
+
+    <!-- Phụ cấp sinh hoạt -->
+    <rect x="15" y="180" width="170" height="32" rx="6" fill="#854d0e"/>
+    <text x="100" y="200" font-family="'Be Vietnam Pro', sans-serif" font-size="10" font-weight="700" fill="#fef9c3" text-anchor="middle">CẤP QUÂN TRANG &amp; PHỤ CẤP</text>
+  </g>
+</svg>

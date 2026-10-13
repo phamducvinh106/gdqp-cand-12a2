@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="100%" height="100%">
+  <defs>
+    <!-- Gỗ Bàn Làm Việc Cán Bộ Tuyển Sinh -->
+    <linearGradient id="woodDesk" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3A1C0E"/>
+      <stop offset="50%" stop-color="#241006"/>
+      <stop offset="100%" stop-color="#140803"/>
+    </linearGradient>
+    <linearGradient id="folderLeather" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7C2D12"/>
+      <stop offset="100%" stop-color="#431407"/>
+    </linearGradient>
+    <filter id="deskShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="12" stdDeviation="15" flood-color="#000" flood-opacity="0.8"/>
+    </filter>
+  </defs>
+
+  <!-- Mặt Bàn Gỗ Sồi Nâu Trầm -->
+  <rect width="1200" height="675" fill="url(#woodDesk)"/>
+  <!-- Vân gỗ nhẹ -->
+  <line x1="0" y1="180" x2="1200" y2="180" stroke="#4A2613" stroke-width="1" opacity="0.3"/>
+  <line x1="0" y1="360" x2="1200" y2="360" stroke="#4A2613" stroke-width="1" opacity="0.3"/>
+  <line x1="0" y1="540" x2="1200" y2="540" stroke="#4A2613" stroke-width="1" opacity="0.3"/>
+
+  <!-- Tập Kẹp Hồ Sơ Da Nâu Trọng Yếu (Dossier Folder) -->
+  <rect x="250" y="60" width="700" height="520" rx="18" fill="url(#folderLeather)" stroke="#9A3412" stroke-width="6" filter="url(#deskShadow)"/>
+
+  <!-- Tờ Giấy Trắng Kê Khai Hồ Sơ (Official Document) -->
+  <rect x="280" y="90" width="640" height="460" rx="10" fill="#F8FAFC" filter="url(#deskShadow)"/>
+  
+  <!-- Quốc Huy / Quân Hiệu Nhạt Giữa Giấy -->
+  <circle cx="600" cy="220" r="70" fill="#FEF2F2" stroke="#FCA5A5" stroke-width="2"/>
+  <polygon points="600,180 610,210 640,210 615,228 625,258 600,240 575,258 585,228 560,210 590,210" fill="#EF4444" opacity="0.4"/>
+
+  <!-- Dòng Kẻ & Tiêu Đề Tài Liệu -->
+  <text x="600" y="130" font-family="'Be Vietnam Pro'" font-size="16" font-weight="900" fill="#991B1B" text-anchor="middle" letter-spacing="2">
+    BỘ CÔNG AN • CÔNG AN HUYỆN/XÃ
+  </text>
+  <text x="600" y="155" font-family="'Be Vietnam Pro'" font-size="13" font-weight="700" fill="#1E293B" text-anchor="middle">
+    PHIẾU THẨM TRA LÝ LỊCH VÀ ĐIỀU KIỆN SƠ TUYỂN CAND
+  </text>
+  <line x1="340" y1="170" x2="860" y2="170" stroke="#CBD5E1" stroke-width="2"/>
+
+  <!-- Các Mục Mô Phỏng -->
+  <line x1="340" y1="320" x2="860" y2="320" stroke="#E2E8F0" stroke-width="1.5"/>
+  <line x1="340" y1="360" x2="860" y2="360" stroke="#E2E8F0" stroke-width="1.5"/>
+  <line x1="340" y1="400" x2="860" y2="400" stroke="#E2E8F0" stroke-width="1.5"/>
+  <line x1="340" y1="440" x2="860" y2="440" stroke="#E2E8F0" stroke-width="1.5"/>
+
+  <!-- Khay Hộp Dấu Mộc Đỏ & Bút Ký Cán Bộ (Red Ink Pad & Brass Stamp) -->
+  <g transform="translate(1000, 200)">
+    <!-- Hộp mực dấu tròn đỏ -->
+    <circle cx="60" cy="60" r="50" fill="#B91C1C" stroke="#7F1D1D" stroke-width="5" filter="url(#deskShadow)"/>
+    <circle cx="60" cy="60" r="38" fill="#DC2626"/>
+    <circle cx="60" cy="60" r="30" fill="#EF4444" opacity="0.8"/>
+    <!-- Cán dấu mộc gỗ bên cạnh -->
+    <rect x="35" y="150" width="50" height="90" rx="8" fill="#D97706" stroke="#92400E" stroke-width="3" filter="url(#deskShadow)"/>
+    <ellipse cx="60" cy="150" rx="25" ry="12" fill="#FBBF24"/>
+    <rect x="45" y="240" width="30" height="15" fill="#DC2626"/>
+  </g>
+
+  <!-- Mũ Kê-pi Cảnh Phục Bên Góc Trái -->
+  <g transform="translate(60, 420)">
+    <ellipse cx="90" cy="120" rx="80" ry="45" fill="#064E3B" stroke="#047857" stroke-width="3" filter="url(#deskShadow)"/>
+    <path d="M 30 110 Q 90 60 150 110" fill="#022C22"/>
+    <!-- Vành đai mạ vàng & Ngôi sao -->
+    <path d="M 25 125 Q 90 155 155 125" fill="none" stroke="#FACC15" stroke-width="6"/>
+    <circle cx="90" cy="100" r="14" fill="#B91C1C" stroke="#FACC15" stroke-width="2"/>
+    <polygon points="90,92 92,97 97,97 93,100 95,105 90,102 85,105 87,100 83,97 88,97" fill="#FACC15"/>
+  </g>
+</svg>

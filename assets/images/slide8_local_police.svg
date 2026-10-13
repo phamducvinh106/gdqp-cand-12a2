@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" height="100%">
+  <defs>
+    <linearGradient id="localBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1B263B"/>
+      <stop offset="100%" stop-color="#0D1B2A"/>
+    </linearGradient>
+    <linearGradient id="stampGold" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FACC15"/>
+      <stop offset="100%" stop-color="#CA8A04"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#localBg)"/>
+  <!-- Trụ Sở Công An Xã/Phường -->
+  <rect x="150" y="80" width="500" height="260" rx="12" fill="#1E293B" stroke="#334155" stroke-width="3"/>
+  <rect x="250" y="40" width="300" height="60" rx="8" fill="#B91C1C" stroke="url(#stampGold)" stroke-width="2"/>
+  <text x="400" y="78" font-family="'Be Vietnam Pro'" font-size="16" font-weight="900" fill="#FEF08A" text-anchor="middle" letter-spacing="2">
+    CÔNG AN CẤP XÃ / PHƯỜNG
+  </text>
+  <!-- Bàn Tiếp Dân & Sơ Tuyển -->
+  <rect x="200" y="240" width="400" height="120" rx="8" fill="#0F172A" stroke="#475569" stroke-width="2"/>
+  <!-- Cán bộ tiếp nhận -->
+  <circle cx="330" cy="190" r="28" fill="#065F46"/>
+  <path d="M 290 240 Q 330 220 370 240 Z" fill="#064E3B"/>
+  <!-- Thí sinh nộp hồ sơ -->
+  <circle cx="470" cy="195" r="26" fill="#3B82F6"/>
+  <path d="M 435 240 Q 470 225 505 240 Z" fill="#1D4ED8"/>
+  <!-- Tập hồ sơ vàng son trên bàn -->
+  <rect x="375" y="225" width="50" height="35" rx="4" fill="#D97706" stroke="#FDE68A" stroke-width="1.5"/>
+  <text x="400" y="247" font-size="9" font-weight="bold" fill="#FFF" text-anchor="middle">HỒ SƠ</text>
+  <!-- Nhãn khung -->
+  <rect x="240" y="380" width="320" height="40" rx="8" fill="#0b1329" stroke="url(#stampGold)" stroke-width="2"/>
+  <text x="400" y="405" font-family="'Be Vietnam Pro'" font-size="13" font-weight="900" fill="url(#stampGold)" text-anchor="middle" letter-spacing="1">
+    BƯỚC 1: SƠ TUYỂN TẠI CÔNG AN XÃ
+  </text>
+</svg>

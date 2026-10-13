@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="100%" height="100%">
+  <defs>
+    <linearGradient id="fireNight" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1A0B0E"/>
+      <stop offset="50%" stop-color="#3D1214"/>
+      <stop offset="100%" stop-color="#801518"/>
+    </linearGradient>
+    <linearGradient id="truckRed" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#EF4444"/>
+      <stop offset="100%" stop-color="#991B1B"/>
+    </linearGradient>
+    <linearGradient id="waterJet" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38BDF8"/>
+      <stop offset="50%" stop-color="#E0F2FE"/>
+      <stop offset="100%" stop-color="#FFFFFF"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="675" fill="url(#fireNight)"/>
+
+  <!-- Khói Lửa Thao Trường Hùng Tráng -->
+  <g opacity="0.35">
+    <circle cx="1000" cy="200" r="180" fill="#F97316"/>
+    <circle cx="900" cy="280" r="150" fill="#EF4444"/>
+    <circle cx="1100" cy="300" r="140" fill="#EAB308"/>
+  </g>
+
+  <!-- Xe Chữa Cháy Cảnh Sát PCCC Hiện Đại (Fire Engine) -->
+  <g transform="translate(100, 240)">
+    <!-- Thân Xe Đỏ Son -->
+    <rect x="0" y="80" width="460" height="180" rx="14" fill="url(#truckRed)" stroke="#B91C1C" stroke-width="4"/>
+    <!-- Cabin Đầu Xe -->
+    <path d="M 320 80 L 440 80 Q 460 80 460 100 L 460 260 L 320 260 Z" fill="#DC2626"/>
+    <rect x="340" y="100" width="100" height="70" rx="8" fill="#1E293B" stroke="#64748B" stroke-width="3"/>
+    <!-- Còi Báo Động Khẩn Cấp -->
+    <ellipse cx="400" cy="70" rx="20" ry="10" fill="#38BDF8"/>
+    <ellipse cx="360" cy="70" rx="20" ry="10" fill="#EF4444"/>
+
+    <!-- Vạch Phản Quang & Chữ CẢNH SÁT PCCC -->
+    <rect x="0" y="180" width="460" height="24" fill="#FACC15"/>
+    <text x="180" y="198" font-family="'Be Vietnam Pro', sans-serif" font-size="16" font-weight="900" fill="#1E1B4B" letter-spacing="2">
+      CẢNH SÁT PCCC &amp; CNCH • 114
+    </text>
+
+    <!-- Thang Cứu Hộ Trên Nóc Xe -->
+    <rect x="20" y="55" width="280" height="15" fill="#94A3B8"/>
+    <line x1="60" y1="55" x2="60" y2="70" stroke="#475569" stroke-width="3"/>
+    <line x1="120" y1="55" x2="120" y2="70" stroke="#475569" stroke-width="3"/>
+    <line x1="180" y1="55" x2="180" y2="70" stroke="#475569" stroke-width="3"/>
+    <line x1="240" y1="55" x2="240" y2="70" stroke="#475569" stroke-width="3"/>
+
+    <!-- Bánh Xe -->
+    <circle cx="100" cy="260" r="50" fill="#0F172A" stroke="#64748B" stroke-width="6"/>
+    <circle cx="100" cy="260" r="22" fill="#94A3B8"/>
+    <circle cx="360" cy="260" r="50" fill="#0F172A" stroke="#64748B" stroke-width="6"/>
+    <circle cx="360" cy="260" r="22" fill="#94A3B8"/>
+  </g>
+
+  <!-- Vòi Nước Phun Áp Lực Cao (Water Jet) -->
+  <path d="M 450 360 Q 750 200 1100 240" fill="none" stroke="url(#waterJet)" stroke-width="20" stroke-linecap="round" opacity="0.9"/>
+  <path d="M 450 360 Q 750 210 1100 250" fill="none" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round"/>
+
+  <!-- Tiêu Đề Thao Trường -->
+  <rect x="360" y="560" width="480" height="55" rx="10" fill="#0b1329" stroke="#EF4444" stroke-width="3"/>
+  <text x="600" y="595" font-family="'Be Vietnam Pro', sans-serif" font-size="20" font-weight="900" fill="#FACC15" text-anchor="middle" letter-spacing="3">
+    ĐẠI HỌC PHÒNG CHÁY CHỮA CHÁY (T06)
+  </text>
+</svg>

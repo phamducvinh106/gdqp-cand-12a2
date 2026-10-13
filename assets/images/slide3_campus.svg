@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="100%" height="100%">
+  <defs>
+    <linearGradient id="skyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0a192f"/>
+      <stop offset="60%" stop-color="#1e3a8a"/>
+      <stop offset="100%" stop-color="#d97706"/>
+    </linearGradient>
+    <linearGradient id="buildingGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#334155"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="gateGold" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#d4af37"/>
+      <stop offset="50%" stop-color="#fff3a8"/>
+      <stop offset="100%" stop-color="#aa771c"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Bầu Trời Bình Minh Học Viện -->
+  <rect width="1200" height="675" fill="url(#skyGrad)"/>
+
+  <!-- Tòa Giảng Đường Trung Tâm Hùng Vĩ -->
+  <rect x="250" y="240" width="700" height="280" fill="url(#buildingGrad)" rx="8"/>
+  <rect x="420" y="160" width="360" height="120" fill="#1e293b" rx="6"/>
+  <!-- Hàng Cột Uy Nghi Trụ Sở -->
+  <g fill="#475569">
+    <rect x="440" y="180" width="18" height="260" rx="3"/>
+    <rect x="490" y="180" width="18" height="260" rx="3"/>
+    <rect x="540" y="180" width="18" height="260" rx="3"/>
+    <rect x="590" y="180" width="18" height="260" rx="3"/>
+    <rect x="640" y="180" width="18" height="260" rx="3"/>
+    <rect x="690" y="180" width="18" height="260" rx="3"/>
+    <rect x="740" y="180" width="18" height="260" rx="3"/>
+  </g>
+
+  <!-- Mái Vòm & Quốc Kỳ Tung Bay -->
+  <polygon points="600,80 500,160 700,160" fill="#b71c1c" stroke="url(#gateGold)" stroke-width="4"/>
+  <line x1="600" y1="80" x2="600" y2="20" stroke="#fff" stroke-width="4"/>
+  <!-- Lá Cờ Tổ Quốc Đỏ Sao Vàng -->
+  <rect x="600" y="20" width="80" height="50" fill="#dc2626"/>
+  <polygon points="640,35 644,45 655,45 646,52 649,62 640,56 631,62 634,52 625,45 636,45" fill="#facc15"/>
+
+  <!-- Đại Lộ Quảng Trường & Cây Xanh -->
+  <polygon points="0,675 450,500 750,500 1200,675" fill="#1e293b"/>
+  <line x1="600" y1="500" x2="600" y2="675" stroke="#facc15" stroke-width="4" stroke-dasharray="20 15"/>
+
+  <!-- Hàng Cây Xanh Hai Bên Đại Lộ -->
+  <g fill="#065f46" opacity="0.85">
+    <circle cx="200" cy="460" r="70"/>
+    <circle cx="320" cy="480" r="60"/>
+    <circle cx="1000" cy="460" r="70"/>
+    <circle cx="880" cy="480" r="60"/>
+  </g>
+
+  <!-- Khung Chữ Mạ Vàng Học Viện -->
+  <rect x="360" y="550" width="480" height="55" rx="10" fill="#0b1329" stroke="url(#gateGold)" stroke-width="3"/>
+  <text x="600" y="585" font-family="'Be Vietnam Pro', sans-serif" font-size="20" font-weight="900" fill="url(#gateGold)" text-anchor="middle" letter-spacing="3">
+    HỌC VIỆN CÔNG AN NHÂN DÂN
+  </text>
+</svg>

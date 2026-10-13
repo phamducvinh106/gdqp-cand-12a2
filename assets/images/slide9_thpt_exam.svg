@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg9" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a192f"/>
+      <stop offset="100%" stop-color="#1e1b4b"/>
+    </linearGradient>
+    <linearGradient id="goldExam" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffe259"/>
+      <stop offset="100%" stop-color="#ffa751"/>
+    </linearGradient>
+    <linearGradient id="redBadge" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#b71c1c"/>
+      <stop offset="100%" stop-color="#7f0000"/>
+    </linearGradient>
+    <filter id="glowExam" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- NỀN -->
+  <rect width="800" height="450" fill="url(#bg9)"/>
+
+  <!-- LƯỚI TOÁN HỌC & ĐỒ THỊ CHÌM -->
+  <g opacity="0.1" stroke="#38bdf8" stroke-width="1">
+    <line x1="100" y1="50" x2="700" y2="50"/>
+    <line x1="100" y1="120" x2="700" y2="120"/>
+    <line x1="100" y1="190" x2="700" y2="190"/>
+    <line x1="100" y1="260" x2="700" y2="260"/>
+    <line x1="100" y1="330" x2="700" y2="330"/>
+    <line x1="100" y1="400" x2="700" y2="400"/>
+    <line x1="150" y1="50" x2="150" y2="400"/>
+    <line x1="300" y1="50" x2="300" y2="400"/>
+    <line x1="450" y1="50" x2="450" y2="400"/>
+    <line x1="600" y1="50" x2="600" y2="400"/>
+  </g>
+
+  <!-- TỜ BÀI THI ĐÁNH GIÁ CỦA BỘ CÔNG AN (MÃ CA1 / CA2) -->
+  <g transform="translate(140, 60)" filter="url(#glowExam)">
+    <!-- Tờ giấy thi -->
+    <rect x="0" y="0" width="240" height="320" rx="10" fill="#f8fafc" stroke="#d4af37" stroke-width="3"/>
+    
+    <!-- Tiêu đề đề thi -->
+    <rect x="15" y="15" width="210" height="40" rx="6" fill="#b71c1c"/>
+    <text x="120" y="32" font-family="'Be Vietnam Pro', sans-serif" font-size="11" font-weight="900" fill="#ffe259" text-anchor="middle">BỘ CÔNG AN VIỆT NAM</text>
+    <text x="120" y="46" font-family="'Be Vietnam Pro', sans-serif" font-size="9" font-weight="700" fill="#ffffff" text-anchor="middle">BÀI THI ĐÁNH GIÁ NĂNG LỰC (CA1/CA2)</text>
+
+    <!-- Các dòng câu hỏi trắc nghiệm & tự luận -->
+    <g transform="translate(25, 75)" fill="#64748b">
+      <rect x="0" y="0" width="120" height="8" rx="4" fill="#94a3b8"/>
+      <circle cx="140" cy="4" r="5" fill="#38bdf8"/>
+      <circle cx="160" cy="4" r="5" fill="#e2e8f0"/>
+      <circle cx="180" cy="4" r="5" fill="#e2e8f0"/>
+
+      <rect x="0" y="25" width="100" height="8" rx="4" fill="#94a3b8"/>
+      <circle cx="140" cy="29" r="5" fill="#e2e8f0"/>
+      <circle cx="160" cy="29" r="5" fill="#38bdf8"/>
+      <circle cx="180" cy="29" r="5" fill="#e2e8f0"/>
+
+      <rect x="0" y="50" width="130" height="8" rx="4" fill="#94a3b8"/>
+      <circle cx="140" cy="54" r="5" fill="#e2e8f0"/>
+      <circle cx="160" cy="54" r="5" fill="#e2e8f0"/>
+      <circle cx="180" cy="54" r="5" fill="#38bdf8"/>
+
+      <!-- Phần tự luận Toán / Văn -->
+      <line x1="0" y1="80" x2="190" y2="80" stroke="#cbd5e1" stroke-width="2"/>
+      <line x1="0" y1="100" x2="190" y2="100" stroke="#cbd5e1" stroke-width="2"/>
+      <line x1="0" y1="120" x2="190" y2="120" stroke="#cbd5e1" stroke-width="2"/>
+      <line x1="0" y1="140" x2="190" y2="140" stroke="#cbd5e1" stroke-width="2"/>
+      <line x1="0" y1="160" x2="150" y2="160" stroke="#cbd5e1" stroke-width="2"/>
+    </g>
+
+    <!-- Dấu mộc điểm 60% -->
+    <circle cx="185" cy="265" r="30" fill="none" stroke="#ef4444" stroke-width="3" stroke-dasharray="4,2"/>
+    <text x="185" y="260" font-family="'Be Vietnam Pro', sans-serif" font-size="11" font-weight="900" fill="#ef4444" text-anchor="middle">TỶ TRỌNG</text>
+    <text x="185" y="278" font-family="'Be Vietnam Pro', sans-serif" font-size="18" font-weight="900" fill="#ef4444" text-anchor="middle">60%</text>
+  </g>
+
+  <!-- BIỂU TƯỢNG BẰNG TỐT NGHIỆP THPT (40%) -->
+  <g transform="translate(420, 100)" filter="url(#glowExam)">
+    <rect x="0" y="0" width="240" height="170" rx="10" fill="#1e293b" stroke="#38bdf8" stroke-width="2"/>
+    <rect x="15" y="15" width="210" height="30" rx="4" fill="#0369a1"/>
+    <text x="120" y="35" font-family="'Be Vietnam Pro', sans-serif" font-size="12" font-weight="900" fill="#ffffff" text-anchor="middle">ĐIỂM THI TỐT NGHIỆP THPT</text>
+    
+    <g transform="translate(25, 60)" fill="#cbd5e1" font-family="'Be Vietnam Pro', sans-serif" font-size="12">
+      <text x="0" y="20">Toán học:</text> <text x="160" y="20" font-weight="bold" fill="#38bdf8">9.2</text>
+      <text x="0" y="45">Ngữ văn / Lý:</text> <text x="160" y="45" font-weight="bold" fill="#38bdf8">8.8</text>
+      <text x="0" y="70">Tiếng Anh / Hóa:</text> <text x="160" y="70" font-weight="bold" fill="#38bdf8">9.0</text>
+    </g>
+
+    <rect x="15" y="135" width="210" height="22" rx="4" fill="#0f172a"/>
+    <text x="120" y="150" font-family="'Be Vietnam Pro', sans-serif" font-size="10" font-weight="700" fill="#94a3b8" text-anchor="middle">TỶ TRỌNG ĐIỂM XÉT TUYỂN: 40%</text>
+  </g>
+
+  <!-- CÔNG THỨC TÍNH ĐIỂM TUYỂN SINH NỔI BẬT -->
+  <g transform="translate(420, 290)">
+    <rect x="0" y="0" width="240" height="90" rx="12" fill="url(#redBadge)" stroke="#ffe259" stroke-width="2" filter="url(#glowExam)"/>
+    <text x="120" y="30" font-family="'Be Vietnam Pro', sans-serif" font-size="12" font-weight="900" fill="#ffe259" text-anchor="middle">CÔNG THỨC XÉT TUYỂN PT3</text>
+    <text x="120" y="55" font-family="'Be Vietnam Pro', sans-serif" font-size="14" font-weight="900" fill="#ffffff" text-anchor="middle">40% THPT + 60% BỘ CÔNG AN</text>
+    <text x="120" y="75" font-family="'Be Vietnam Pro', sans-serif" font-size="10" font-weight="600" fill="#fecaca" text-anchor="middle">+ Điểm ưu tiên khu vực / đối tượng</text>
+  </g>
+</svg>

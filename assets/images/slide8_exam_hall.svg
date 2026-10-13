@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" height="100%">
+  <defs>
+    <linearGradient id="hallBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0B1329"/>
+      <stop offset="100%" stop-color="#1E293B"/>
+    </linearGradient>
+    <linearGradient id="goldHall" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FACC15"/>
+      <stop offset="100%" stop-color="#CA8A04"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#hallBg)"/>
+  <!-- Giảng Đường Thi Nghiêm Túc -->
+  <rect x="100" y="80" width="600" height="260" rx="12" fill="#111C35" stroke="#38BDF8" stroke-width="2"/>
+  <!-- Bảng Thông Báo Bài Thi Đánh Giá BCA -->
+  <rect x="220" y="40" width="360" height="55" rx="8" fill="#B91C1C" stroke="url(#goldHall)" stroke-width="2"/>
+  <text x="400" y="74" font-family="'Be Vietnam Pro'" font-size="14" font-weight="900" fill="#FEF08A" text-anchor="middle" letter-spacing="2">
+    KỲ THI ĐÁNH GIÁ CỦA BỘ CÔNG AN (MÃ CA1, CA2)
+  </text>
+  <!-- Các Bàn Thí Sinh Ngồi Thi Trật Tự -->
+  <g fill="#1E293B" stroke="#475569" stroke-width="1.5">
+    <rect x="160" y="140" width="120" height="60" rx="6"/>
+    <rect x="340" y="140" width="120" height="60" rx="6"/>
+    <rect x="520" y="140" width="120" height="60" rx="6"/>
+    <rect x="160" y="240" width="120" height="60" rx="6"/>
+    <rect x="340" y="240" width="120" height="60" rx="6"/>
+    <rect x="520" y="240" width="120" height="60" rx="6"/>
+  </g>
+  <!-- Hình Bóng Thí Sinh Tập Trung Làm Bài -->
+  <g fill="#3B82F6">
+    <circle cx="220" cy="120" r="16"/><circle cx="400" cy="120" r="16"/><circle cx="580" cy="120" r="16"/>
+    <circle cx="220" cy="220" r="16"/><circle cx="400" cy="220" r="16"/><circle cx="580" cy="220" r="16"/>
+  </g>
+  <!-- Bài Thi & Bút Ký Trên Bàn -->
+  <rect x="200" y="155" width="40" height="30" fill="#FFFFFF" rx="3"/>
+  <rect x="380" y="155" width="40" height="30" fill="#FFFFFF" rx="3"/>
+  <rect x="560" y="155" width="40" height="30" fill="#FFFFFF" rx="3"/>
+  <!-- Nhãn Khung -->
+  <rect x="240" y="380" width="320" height="40" rx="8" fill="#0b1329" stroke="url(#goldHall)" stroke-width="2"/>
+  <text x="400" y="405" font-family="'Be Vietnam Pro'" font-size="13" font-weight="900" fill="url(#goldHall)" text-anchor="middle" letter-spacing="1">
+    BƯỚC 2: DỰ THI ĐẠI HỌC &amp; BÀI THI BCA
+  </text>
+</svg>

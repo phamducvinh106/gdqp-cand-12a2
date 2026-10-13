@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 350" width="100%" height="100%">
+  <defs>
+    <linearGradient id="uniBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e3a8a"/>
+    </linearGradient>
+    <linearGradient id="uniGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fde047"/>
+      <stop offset="100%" stop-color="#ca8a04"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="600" height="350" fill="url(#uniBg)"/>
+
+  <!-- TÒA NHÀ TRƯỜNG ĐẠI HỌC HIỆN ĐẠI -->
+  <g transform="translate(100, 70)">
+    <!-- Tòa nhà chính -->
+    <rect x="50" y="40" width="300" height="180" rx="4" fill="#1e293b" stroke="#3b82f6" stroke-width="2"/>
+    <polygon points="40,40 200,0 360,40" fill="#2563eb" stroke="url(#uniGold)" stroke-width="2"/>
+    
+    <!-- Các ô cửa kính giảng đường -->
+    <g fill="#60a5fa" opacity="0.8">
+      <rect x="70" y="60" width="30" height="30" rx="2"/>
+      <rect x="120" y="60" width="30" height="30" rx="2"/>
+      <rect x="170" y="60" width="30" height="30" rx="2"/>
+      <rect x="250" y="60" width="30" height="30" rx="2"/>
+      <rect x="300" y="60" width="30" height="30" rx="2"/>
+
+      <rect x="70" y="110" width="30" height="30" rx="2"/>
+      <rect x="120" y="110" width="30" height="30" rx="2"/>
+      <rect x="170" y="110" width="30" height="30" rx="2"/>
+      <rect x="250" y="110" width="30" height="30" rx="2"/>
+      <rect x="300" y="110" width="30" height="30" rx="2"/>
+
+      <rect x="70" y="160" width="30" height="30" rx="2"/>
+      <rect x="120" y="160" width="30" height="30" rx="2"/>
+      <rect x="250" y="160" width="30" height="30" rx="2"/>
+      <rect x="300" y="160" width="30" height="30" rx="2"/>
+    </g>
+
+    <!-- Cửa ra vào lớn -->
+    <rect x="175" y="160" width="50" height="60" rx="2" fill="#0284c7" stroke="url(#uniGold)" stroke-width="2"/>
+
+    <!-- Biểu tượng Ngôi sao vàng trên mái vòm -->
+    <circle cx="200" cy="22" r="14" fill="#b91c1c" stroke="url(#uniGold)" stroke-width="2"/>
+    <polygon points="200,14 203,20 210,20 205,24 207,30 200,26 193,30 195,24 190,20 197,20" fill="url(#uniGold)"/>
+  </g>
+
+  <!-- BIỂU TƯỢNG MŨ CỬ NHÂN & QUÂN HIỆU -->
+  <g transform="translate(420, 180)">
+    <!-- Mũ cử nhân -->
+    <polygon points="50,20 10,40 50,60 90,40" fill="#3b82f6" stroke="url(#uniGold)" stroke-width="2"/>
+    <path d="M 25 50 Q 50 75 75 50" fill="#1d4ed8" stroke="#3b82f6" stroke-width="2"/>
+    <circle cx="85" cy="55" r="4" fill="#facc15"/>
+    <line x1="85" y1="55" x2="88" y2="75" stroke="#facc15" stroke-width="2"/>
+  </g>
+
+  <rect x="80" y="275" width="440" height="35" rx="8" fill="#1e293b" stroke="url(#uniGold)" stroke-width="1.5"/>
+  <text x="300" y="298" font-family="'Be Vietnam Pro', sans-serif" font-size="13" font-weight="800" fill="#fde047" text-anchor="middle">KHỐI ĐẠI HỌC CAND (T04 • T05 • T06)</text>
+</svg>

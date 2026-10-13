@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 350" width="100%" height="100%">
+  <defs>
+    <linearGradient id="ieltsGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E1B4B"/>
+      <stop offset="100%" stop-color="#0F172A"/>
+    </linearGradient>
+    <linearGradient id="certBorder" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#F59E0B"/>
+      <stop offset="100%" stop-color="#D97706"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="350" fill="url(#ieltsGrad)"/>
+  <!-- Chứng Chỉ Ngoại Ngữ Quốc Tế (IELTS 7.5+ / HSK 5) -->
+  <rect x="80" y="50" width="230" height="230" rx="10" fill="#FFFFFF" stroke="url(#certBorder)" stroke-width="4"/>
+  <rect x="95" y="65" width="200" height="25" fill="#EF4444" rx="4"/>
+  <text x="195" y="82" font-family="'Be Vietnam Pro'" font-size="12" font-weight="900" fill="#FFF" text-anchor="middle">IELTS ACADEMIC ≥ 7.5</text>
+  <!-- Huy Hiệu Đóng Dấu Đỏ TRF -->
+  <circle cx="195" cy="180" r="45" fill="#FEF2F2" stroke="#DC2626" stroke-width="3"/>
+  <text x="195" y="188" font-size="28" font-weight="900" fill="#DC2626" text-anchor="middle">8.0</text>
+  <!-- Dấu Cộng Kết Hợp Bắt Buộc -->
+  <text x="330" y="175" font-size="36" font-weight="900" fill="#FACC15" text-anchor="middle">+</text>
+  <!-- Đề Thi Đánh Giá Của Bộ Công An -->
+  <rect x="360" y="50" width="180" height="230" rx="10" fill="#1E293B" stroke="#FACC15" stroke-width="3"/>
+  <rect x="375" y="65" width="150" height="25" fill="#B91C1C" rx="4"/>
+  <text x="450" y="82" font-family="'Be Vietnam Pro'" font-size="10" font-weight="900" fill="#FFF" text-anchor="middle">BÀI THI BCA (BẮT BUỘC)</text>
+  <circle cx="450" cy="180" r="35" fill="#0B1329" stroke="#FACC15" stroke-width="2"/>
+  <polygon points="450,158 456,172 472,172 459,182 464,196 450,186 436,196 441,182 428,172 444,172" fill="#FACC15"/>
+  <!-- Nhãn -->
+  <rect x="150" y="295" width="300" height="35" rx="6" fill="#B91C1C" stroke="url(#certBorder)" stroke-width="1.5"/>
+  <text x="300" y="318" font-family="'Be Vietnam Pro'" font-size="12" font-weight="900" fill="#FEF08A" text-anchor="middle" letter-spacing="1">
+    PT 2: NGOẠI NGỮ + BÀI THI BCA
+  </text>
+</svg>

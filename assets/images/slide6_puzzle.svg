@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 350" width="100%" height="100%">
+  <defs>
+    <linearGradient id="puzBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a192f"/>
+      <stop offset="100%" stop-color="#1e1b4b"/>
+    </linearGradient>
+    <linearGradient id="puzGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fde047"/>
+      <stop offset="100%" stop-color="#ca8a04"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="600" height="350" fill="url(#puzBg)"/>
+
+  <!-- HAI MẢNH GHÉP PUZZLE KHỚP NỐI NHAU VÀ PHÁT SÁNG -->
+  <g transform="translate(140, 70)">
+    <!-- Mảnh trái (Trường CAND) -->
+    <path d="M 40 40 L 140 40 L 140 80 C 160 80, 160 120, 140 120 L 140 160 L 40 160 Z" fill="#b91c1c" stroke="url(#puzGold)" stroke-width="3"/>
+    <text x="85" y="95" font-family="'Be Vietnam Pro', sans-serif" font-size="12" font-weight="900" fill="#fff" text-anchor="middle">TRƯỜNG</text>
+    <text x="85" y="115" font-family="'Be Vietnam Pro', sans-serif" font-size="10" font-weight="700" fill="#fde047" text-anchor="middle">HỌC VIỆN CAND</text>
+
+    <!-- Mảnh phải (Chuyên ngành tương ứng) -->
+    <path d="M 170 40 L 270 40 L 270 160 L 170 160 L 170 120 C 150 120, 150 80, 170 80 Z" fill="#0284c7" stroke="url(#puzGold)" stroke-width="3"/>
+    <text x="225" y="95" font-family="'Be Vietnam Pro', sans-serif" font-size="12" font-weight="900" fill="#fff" text-anchor="middle">CHUYÊN NGÀNH</text>
+    <text x="225" y="115" font-family="'Be Vietnam Pro', sans-serif" font-size="10" font-weight="700" fill="#fde047" text-anchor="middle">NGHIỆP VỤ ĐÚNG</text>
+
+    <!-- Tia sét kết nối ở giữa -->
+    <polygon points="155,50 160,95 150,105 162,150 152,150 148,105 158,95" fill="#fde047"/>
+  </g>
+
+  <!-- BIỂU TƯỢNG VẠCH NỐI CHÍNH XÁC -->
+  <g transform="translate(100, 260)">
+    <rect x="0" y="0" width="400" height="40" rx="8" fill="#1e293b" stroke="#22c55e" stroke-width="2"/>
+    <circle cx="30" cy="20" r="10" fill="#22c55e"/>
+    <text x="30" y="24" font-family="'Be Vietnam Pro', sans-serif" font-size="12" font-weight="bold" fill="#fff" text-anchor="middle">✓</text>
+    <text x="220" y="25" font-family="'Be Vietnam Pro', sans-serif" font-size="12" font-weight="800" fill="#86efac" text-anchor="middle">GHÉP ĐÚNG CẶP TRƯỜNG &amp; CHUYÊN NGÀNH</text>
+  </g>
+</svg>
